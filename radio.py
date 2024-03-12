@@ -1,6 +1,7 @@
 from RPi import GPIO
 from time import sleep
 import time
+import os
 from threading import Thread
 
 clk = 17
@@ -72,5 +73,7 @@ while True:
                 print ("kein Sender aktiv")
                 try:
                         os.system('killall mplayer')
+                finally:
+                        print("Fehler")
         sleep(1)
 
