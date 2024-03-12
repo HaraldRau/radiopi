@@ -72,5 +72,7 @@ while True:
                 print ("kein Sender aktiv")
                 try:
                         os.system('killall mplayer')
+                finally:
+                        print("Fehler")
         sleep(1)
 
