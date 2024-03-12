@@ -54,7 +54,19 @@ while True:
                 os.system(play)
         elif counter < 30 and counter > 25:
                 print (sender[2])
-                play = befehl  + sender[1]
+                play = befehl  + sender[2]
+                os.system(play)
+        elif counter < 40 and counter > 35:
+                print (sender[3])
+                play = befehl  + sender[3]
+                os.system(play)
+        elif counter < 50 and counter > 45:
+                print (sender[4])
+                play = befehl  + sender[4]
+                os.system(play)
+        elif counter < 60 and counter > 55:
+                print (sender[5])
+                play = befehl  + sender[5]
                 os.system(play)
         else:
                 print ("kein Sender aktiv")
