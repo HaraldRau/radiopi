@@ -14,7 +14,8 @@ sender = ("http://sc2.radiocaroline.net:10558/",
           "https://nora.streamabc.net/regc-noraoldie-mp3-192-4426850",
           "http://streams.rsa-sachsen.de/rsa-beatles/mp3-192/mediaplayerrsa",
           "http://streams.rsa-sachsen.de/rsa-oldies/mp3-192/mediaplayerrsa",
-          "http://laut.fm/oldies","https://stream.laut.fm/the-beat-goes-on")
+          "http://laut.fm/oldies",
+	  "http://stream.laut.fm/the-beat-goes-on")
 # eine Umdrehung 40 klicks
 # Uebersetzung von 1:4 empfohlen
 GPIO.setmode(GPIO.BCM)
@@ -65,4 +66,3 @@ while True:
         else:
                 os.system("killall rhythmbox")
                 activplayer = 0
-                # try versuchen
