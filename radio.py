@@ -64,5 +64,5 @@ while True:
 		mplayer.start()
                 sleep(1)
         else:
-                os.system("killall rhythmbox")
+                os.system("killall mplayer")
                 activplayer = 0
