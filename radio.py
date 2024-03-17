@@ -57,7 +57,7 @@ while True:
 	senderID = int((frequenz-88)/2)
 	print (counter, frequenz, senderID)
         
-	if (frequenz == 88 or frequenz == 90 or frequenz == 92 or frequenz == 94 or frequenz == 96 or frequenz == 98 or frequenz == 100 or frequenz == 102 or frequenz == 104) and activplayer == 0:
+	if (frequenz % 2) and activplayer == 0:
 		terminal = befehl + sender[senderID]
 		activplayer = 1
 		mplayer = Thread(target=play)
