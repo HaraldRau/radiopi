@@ -3,8 +3,6 @@ from time import sleep
 import time
 import os
 from threading import Thread
-import subprocess
-import sys
 os.system("mocp -S")
 os.system("mocp --volume=100")
 clk = 17
