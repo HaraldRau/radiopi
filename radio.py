@@ -1,17 +1,23 @@
 from RPi import GPIO
+from gpiozero import LED
 from time import sleep
 import time
 import os
 from threading import Thread
 os.system("mocp -S")
-os.system("mocp --volume=70")
+os.system("mocp --volume=100")
+os.system("mocp --playit /home/hara/radiopi/ready.mp3")
+# Variablen
 clk = 17
 dt = 18
 counter = 0
 cur_counter = 0
 max_counter = 40
 activplayer = 0
+led_power = LED(17)
 befehl = "mocp --playit "
+led_power.on()
+# Senderliste
 sender = ("http://sc2.radiocaroline.net:10558/",
           "http://stream.laut.fm/1-hits70s",
           "http://streams.rsa-sachsen.de/rsa-beatles/mp3-192/mediaplayerrsa",
@@ -51,8 +57,9 @@ def senderwahl():
 
 # Thread zuweisen und starten
 sendersuche = Thread(target=senderwahl)
-#mpplayer = Thread(target=play)
 sendersuche.start()
+
+# Dauerschleife
 while True:
 	# print(counter, cur_counter)
 	# Sender aufwählen und abspielen
