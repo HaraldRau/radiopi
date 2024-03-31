@@ -1,0 +1,41 @@
+#! /bin/sh
+# /etc/init.d
+
+### BEGIN INIT INFO
+# Provides: radiopi
+# Required-Start: $syslog
+# Required-Stop: $syslog
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: noip server
+# Description:
+### END INIT INFO
+ 
+case "$1" in
+    start)
+        echo "RadioPi wird gestartet"
+        # Starte Programm
+        python /home/hara/radiopi/radio.py
+        ;;
+    stop)
+        echo "RadioPi wird beendet"
+        # Beende Programm
+        killall mocp
+	killall python
+        ;;
+
+ 	restart)
+ 	#Aktion wenn restart uebergeben wird
+ 	echo "RadioPi wird neu gestartet"
+ 	killall mocp
+	killall python
+	python /home/hara/radiopi/radio.py
+	;;
+
+    *)
+        echo "Benutzt: /etc/init.d/radiopi {start|stop|restart}"
+        exit 1
+        ;;
+esac
+ 
+exit 0
