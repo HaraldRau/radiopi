@@ -30,7 +30,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(clk, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(2,GPIO.OUT)
-GPIO.setup(4,GPIO.OUT)
+GPIO.setup(14,GPIO.OUT)
 GPIO.output(2,GPIO.HIGH)
 
 # Funktion Playeraufruf
