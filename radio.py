@@ -29,9 +29,12 @@ sender = ("http://sc2.radiocaroline.net:10558/",
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(clk, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(2,GPIO.OUT)
-GPIO.setup(14,GPIO.OUT)
-GPIO.output(2,GPIO.HIGH)
+GPIO.setup(21,GPIO.OUT)
+GPIO.setup(20,GPIO.OUT)
+GPIO.output(21,GPIO.HIGH)
+GPIO.output(20,GPIO.HIGH)
+sleep(1)
+GPIO.output(20,GPIO.LOW)
 
 # Funktion Playeraufruf
 def play():
