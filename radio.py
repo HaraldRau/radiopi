@@ -1,5 +1,4 @@
 from RPi import GPIO
-from gpiozero import LED
 from time import sleep
 import time
 import os
@@ -14,9 +13,9 @@ counter = 0
 cur_counter = 0
 max_counter = 40
 activplayer = 0
-led_power = LED(17)
+
 befehl = "mocp --playit "
-led_power.on()
+
 # Senderliste
 sender = ("http://sc2.radiocaroline.net:10558/",
           "http://stream.laut.fm/1-hits70s",
@@ -30,6 +29,10 @@ sender = ("http://sc2.radiocaroline.net:10558/",
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(clk, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(2,GPIO.OUT)
+GPIO.setup(4,GPIO.OUT)
+GPIO.output(2,GPIO.HIGH)
+
 # Funktion Playeraufruf
 def play():
 	global terminal
