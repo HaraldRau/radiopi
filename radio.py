@@ -72,7 +72,7 @@ while True:
 	if counter < 0:
 		counter = 0
 	while cur_counter != counter:
-		mpplayer = Thread(target=play)
+		#mpplayer = Thread(target=play)
 		#print (counter)
 		cur_counter = counter
 		frequenz = int((counter/max_counter*18)+88)
@@ -83,7 +83,8 @@ while True:
 		if (frequenz % 2) and activplayer == 0:
 			#print (activplayer)
 			terminal = befehl + sender[senderID]
-			mpplayer.start()
+			os.system(terminal)
+			#mpplayer.start()
 			activplayer = 1
 			#sleep(1)
 		if not(frequenz % 2):
