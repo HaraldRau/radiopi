@@ -12,30 +12,29 @@
 ### END INIT INFO
  
 case "$1" in
-    start)
-        echo "RadioPi wird gestartet"
-        # Starte Programm
-        python /home/hara/radiopi/radio.py
-        ;;
-    stop)
-        echo "RadioPi wird beendet"
-        # Beende Programm
-        killall mocp
-	killall python
-        ;;
+	start)
+        	echo "RadioPi wird gestartet"
+        	# Starte Programm
+        	python /home/hara/radiopi/radio.py
+        	;;
+	stop)
+		echo "RadioPi wird beendet"
+        	# Beende Programm
+        	killall mocp
+		killall python
+        	;;
+	restart)
+ 		#Aktion wenn restart uebergeben wird
+ 		echo "RadioPi wird neu gestartet"
+ 		killall mocp
+		killall python
+		python /home/hara/radiopi/radio.py
+		;;
 
- 	restart)
- 	#Aktion wenn restart uebergeben wird
- 	echo "RadioPi wird neu gestartet"
- 	killall mocp
-	killall python
-	python /home/hara/radiopi/radio.py
-	;;
-
-    *)
-        echo "Benutzt: /etc/init.d/radiopi {start|stop|restart}"
-        exit 1
-        ;;
+	*)
+		echo "Benutzt: /etc/init.d/radiopi {start|stop|restart}"
+		exit 1
+        	;;
 esac
  
 exit 0
