@@ -1,5 +1,4 @@
 from RPi import GPIO
-from time import sleep
 import time
 import os
 from threading import Thread
@@ -7,8 +6,9 @@ os.system("mocp -S")
 os.system("mocp --volume=100")
 os.system("mocp --playit /home/hara/radiopi/ready.mp3")
 # Variablen
-clk = 17
-dt = 18
+clk = 5
+dt = 6
+sw = 13
 counter = 0
 cur_counter = 0
 max_counter = 40
@@ -29,11 +29,11 @@ sender = ("http://sc2.radiocaroline.net:10558/",
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(clk, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(21,GPIO.OUT)
+GPIO.setup(21,GPIO.OUT) # Betriebsanzeige AN/AUS Nach Start verschieben, wenn WLAN
 GPIO.setup(20,GPIO.OUT)
-GPIO.output(21,GPIO.HIGH)
+GPIO.output(21,GPIO.HIGH) # Betriebsanzeige AN/AUS Nach Start verschieben, wenn WLAN
 GPIO.output(20,GPIO.HIGH)
-sleep(1)
+time.sleep(1)
 GPIO.output(20,GPIO.LOW)
 
 # Funktion Playeraufruf --> löschen nach Test
