@@ -41,7 +41,7 @@ GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 # GPIO.output(20,GPIO.HIGH)
 time.sleep(1)
 # GPIO.output(20,GPIO.LOW)
-display.lcd_display_string("Sender auswählen", 2)
+display.lcd_display_string("Sender suchen!", 2)
 # Funktion Playeraufruf --> löschen nach Test
 #def play():
 #	global terminal
