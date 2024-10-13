@@ -3,8 +3,8 @@ import time
 import os
 import drivers
 display = drivers.Lcd(0x27)
-display.lcd_display_string("Radio Pi", 1)
-display.lcd_display_string("Version 0.10", 2)
+display.lcd_display_string("Radio Pi V 0.10", 1)
+# display.lcd_display_string("Version 0.10", 2)
 from threading import Thread
 os.system("mocp -S")
 os.system("mocp --volume=100")
@@ -35,17 +35,17 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(clk, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(21,GPIO.OUT) # Betriebsanzeige AN/AUS Nach Start verschieben, wenn WLAN
-GPIO.setup(20,GPIO.OUT)
-GPIO.output(21,GPIO.HIGH) # Betriebsanzeige AN/AUS Nach Start verschieben, wenn WLAN
-GPIO.output(20,GPIO.HIGH)
+# GPIO.setup(21,GPIO.OUT) # Betriebsanzeige AN/AUS Nach Start verschieben, wenn WLAN
+# GPIO.setup(20,GPIO.OUT)
+# GPIO.output(21,GPIO.HIGH) # Betriebsanzeige AN/AUS Nach Start verschieben, wenn WLAN
+# GPIO.output(20,GPIO.HIGH)
 time.sleep(1)
-GPIO.output(20,GPIO.LOW)
-
+# GPIO.output(20,GPIO.LOW)
+display.lcd_display_string("Sender auswählen", 2)
 # Funktion Playeraufruf --> löschen nach Test
-def play():
-	global terminal
-	os.system(terminal)
+#def play():
+#	global terminal
+#	os.system(terminal)
 
 
 # Funktion für Tread Abfrage des Senderwählers K
