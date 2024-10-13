@@ -1,5 +1,5 @@
 import drivers
-import sleep
+import time
 display = drivers.Lcd(0x27)
 try:
   while True:
