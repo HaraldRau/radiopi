@@ -31,6 +31,7 @@ sender = ("http://sc2.radiocaroline.net:10558/",
 # eine Umdrehung 40 klicks
 # Uebersetzung von 1:4 empfohlen
 GPIO.cleanup()  # Gibt alle GPIO-Pins frei
+GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(clk, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
