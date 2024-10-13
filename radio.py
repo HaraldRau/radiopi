@@ -64,8 +64,6 @@ def senderwahl():
                                         counter -= 1
                                 #print (counter)
                                 clkLastState = clkState
-        except KeyboardInterrupt:
-		GPIO.cleanup()
 	finally:
                 GPIO.cleanup()
 
