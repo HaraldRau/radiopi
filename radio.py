@@ -64,8 +64,8 @@ def senderwahl():
                                         counter -= 1
                                 #print (counter)
                                 clkLastState = clkState
-	finally:
-		GPIO.cleanup()
+        finally:
+                GPIO.cleanup()
 
 # Thread zuweisen und starten
 sendersuche = Thread(target=senderwahl)
