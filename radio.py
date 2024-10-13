@@ -78,12 +78,14 @@ while True:
 	if counter < 0:
 		counter = 0
 	while cur_counter != counter:
-		#mpplayer = Thread(target=play)
+		display.lcd_clear()
 		#print (counter)
 		cur_counter = counter
 		frequenz = int((counter/max_counter*18)+88) # Prüfen auf Notwendigkeit
 		senderID = int((frequenz-88)/2) # Frequenz ersetzen durch counter??? eventuell /4 ???
 		#print (counter, frequenz, senderID)
+		display.lcd_display_string(counter, 1)
+		display.lcd_display_string(senderID, 2)
 		#sleep(5)
 		#print (activplayer, counter, frequenz)
 		if (frequenz % 2) and activplayer == 0:
