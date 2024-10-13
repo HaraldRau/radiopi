@@ -15,7 +15,7 @@ dt = 6
 sw = 13
 counter = 0
 cur_counter = 0
-max_counter = 40
+max_counter = 40 # nicht mehr NOTIG weil keine Skala
 activplayer = 0
 
 befehl = "mocp --playit "
@@ -81,8 +81,8 @@ while True:
 		#mpplayer = Thread(target=play)
 		#print (counter)
 		cur_counter = counter
-		frequenz = int((counter/max_counter*18)+88)
-		senderID = int((frequenz-88)/2)
+		frequenz = int((counter/max_counter*18)+88) # Prüfen auf Notwendigkeit
+		senderID = int((frequenz-88)/2) # Frequenz ersetzen durch counter??? eventuell /4 ???
 		#print (counter, frequenz, senderID)
 		#sleep(5)
 		#print (activplayer, counter, frequenz)
