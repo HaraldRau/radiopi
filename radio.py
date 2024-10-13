@@ -1,6 +1,10 @@
 from RPi import GPIO
 import time
 import os
+import drivers
+display = drivers.Lcd(0x27)
+display.lcd_display_string("Radio Pi", 1)
+display.lcd_display_string("Version 0.10", 2)
 from threading import Thread
 os.system("mocp -S")
 os.system("mocp --volume=100")
