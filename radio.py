@@ -90,11 +90,11 @@ while True:
 			#print (activplayer)
 			terminal = befehl + sender[senderID]
 			os.system(terminal)
-			GPIO.output(20,GPIO.HIGH)
+			#GPIO.output(20,GPIO.HIGH)
 			#mpplayer.start()
 			activplayer = 1
 			#sleep(1)
 		if not(frequenz % 2):
 			os.system("mocp --stop")
-			GPIO.output(20,GPIO.LOW)
+			#GPIO.output(20,GPIO.LOW)
 			activplayer = 0
