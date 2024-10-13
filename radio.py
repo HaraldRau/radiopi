@@ -30,8 +30,8 @@ sender = ("http://sc2.radiocaroline.net:10558/",
 	  "http://stream.laut.fm/northernsoul")
 # eine Umdrehung 40 klicks
 # Uebersetzung von 1:4 empfohlen
-GPIO.cleanup()  # Gibt alle GPIO-Pins frei
-GPIO.setwarnings(False)
+# GPIO.cleanup()  # Gibt alle GPIO-Pins frei
+# GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(clk, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
@@ -64,7 +64,9 @@ def senderwahl():
                                         counter -= 1
                                 #print (counter)
                                 clkLastState = clkState
-        finally:
+        except KeyboardInterrupt:
+		GPIO.cleanup()
+	finally:
                 GPIO.cleanup()
 
 # Thread zuweisen und starten
