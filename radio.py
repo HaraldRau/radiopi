@@ -81,13 +81,15 @@ while True:
 		display.lcd_clear()
 		#print (counter)
 		cur_counter = counter
-		frequenz = int((counter/max_counter*18)+88) # Prüfen auf Notwendigkeit
-		senderID = int((frequenz-88)/2) # Frequenz ersetzen durch counter??? eventuell /4 ???
+		#frequenz = int((counter/max_counter*18)+88) # Prüfen auf Notwendigkeit
+		#senderID = int((frequenz-88)/2) # Frequenz ersetzen durch counter??? eventuell /4 ???
+		frequenz = int(counter/4)
+		senderID = int(counter/8)
 		#print (counter, frequenz, senderID)
-		display.lcd_display_string(str(counter), 1)
+		display.lcd_display_string(str(frequenz), 1)
 		display.lcd_display_string(str(senderID), 2)
 		#sleep(5)
-		#print (activplayer, counter, frequenz)
+		print (senderID, counter, frequenz)
 		if (frequenz % 2) and activplayer == 0:
 			#print (activplayer)
 			terminal = befehl + sender[senderID]
