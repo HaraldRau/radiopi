@@ -86,7 +86,7 @@ while True:
 		frequenz = int(counter/4)
 		senderID = int(counter/8)
 		#print (counter, frequenz, senderID)
-		display.lcd_display_string(str(frequenz), 1)
+		display.lcd_display_string(str(counter), 1)
 		display.lcd_display_string(str(senderID), 2)
 		#sleep(5)
 		print (senderID, counter, frequenz)
