@@ -15,6 +15,9 @@ case "$1" in
 	start)
         	echo "RadioPi wird gestartet"
         	# Starte Programm
+		mocp -S
+		mocp --volume=100
+		mocp --playit /home/hara/radiopi/ready.mp3
         	python /home/hara/radiopi/radio.py
         	;;
 	stop)
@@ -28,6 +31,9 @@ case "$1" in
  		echo "RadioPi wird neu gestartet"
  		killall mocp
 		killall python
+		mocp -S
+		mocp --volume=100
+		mocp --playit /home/hara/radiopi/ready.mp3
 		python /home/hara/radiopi/radio.py
 		;;
 
