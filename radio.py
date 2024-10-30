@@ -86,8 +86,8 @@ while True:
 		frequenz = int(counter/4)
 		senderID = int(counter/8)
 		#print (counter, frequenz, senderID)
-		display.lcd_display_string(str(counter), 1)
-		display.lcd_display_string(str(senderID), 2)
+		display.lcd_display_string(str(counter), 1)#zeile ausschalten
+		display.lcd_display_string(str(senderID), 2)#in den if-zweig verschiben und den Sender anzeigen
 		#sleep(5)
 		print (senderID, counter, frequenz)
 		if (frequenz % 2) and activplayer == 0:
@@ -99,6 +99,6 @@ while True:
 			activplayer = 1
 			#sleep(1)
 		if not(frequenz % 2):
-			os.system("mocp --stop")
+			os.system("mocp --stop") #ABSCHALTEN
 			#GPIO.output(20,GPIO.LOW)
 			activplayer = 0
