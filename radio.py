@@ -6,9 +6,9 @@ display = drivers.Lcd(0x27)
 display.lcd_display_string("Radio Pi V 0.10", 1)
 # display.lcd_display_string("Version 0.10", 2)
 from threading import Thread
-os.system("mocp -S")
-os.system("mocp --volume=100")
-os.system("mocp --playit /home/hara/radiopi/ready.mp3")
+# os.system("mocp -S")
+# os.system("mocp --volume=100")
+# os.system("mocp --playit /home/hara/radiopi/ready.mp3")
 # Variablen
 clk = 5
 dt = 6
