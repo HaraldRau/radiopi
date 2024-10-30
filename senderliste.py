@@ -1,6 +1,5 @@
 def sender(id):
-  sender = 
-  [
+  sender = [
     ["Radio Caroline","http://sc2.radiocaroline.net:10558/"],
     ["70-iger","http://stream.laut.fm/1-hits70s"],
     ["RSA Beatles","http://streams.rsa-sachsen.de/rsa-beatles/mp3-192/mediaplayerrsa"],
