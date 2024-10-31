@@ -5,7 +5,6 @@ import drivers
 import senderliste
 display = drivers.Lcd(0x27)
 display.lcd_display_string("Radio Pi V 0.10", 1)
-# display.lcd_display_string("Version 0.10", 2)
 from threading import Thread
 
 # Variablen ====================================================================
@@ -55,7 +54,7 @@ while True:
 	if counter < 0:
 		counter = 0
 	while cur_counter != counter:
-		display.lcd_clear()
+		#display.lcd_clear()
 		#print (counter)
 		cur_counter = counter
 		frequenz = int(counter/4)
