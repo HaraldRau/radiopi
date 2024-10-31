@@ -89,7 +89,7 @@ while True:
 		print (senderID, counter, frequenz)
 		if (frequenz % 2) and activplayer == 0:
 			#print (activplayer)
-			sender = senderliste.sender[senderID]
+			sender = senderliste.sender(senderID)
 			terminal = f"mocp --playit {sender[1]}"
 			os.system(terminal)
 			display.lcd_display_string(sender[1], 2)
