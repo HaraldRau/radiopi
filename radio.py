@@ -2,6 +2,7 @@ from RPi import GPIO
 import time
 import os
 import drivers
+import senderliste
 display = drivers.Lcd(0x27)
 display.lcd_display_string("Radio Pi V 0.10", 1)
 # display.lcd_display_string("Version 0.10", 2)
@@ -15,19 +16,19 @@ dt = 6
 sw = 13
 counter = 0
 cur_counter = 0
-max_counter = 40 # nicht mehr NOTIG weil keine Skala
+#max_counter = 40 # nicht mehr NOTIG weil keine Skala
 activplayer = 0
 
-befehl = "mocp --playit "
+#befehl = "mocp --playit "
 
-# Senderliste
-sender = ("http://sc2.radiocaroline.net:10558/",
-          "http://stream.laut.fm/1-hits70s",
-          "http://streams.rsa-sachsen.de/rsa-beatles/mp3-192/mediaplayerrsa",
-          "http://streams.rsa-sachsen.de/rsa-oldies/mp3-192/mediaplayerrsa",
-          "http://laut.fm/oldies",
-	  "http://stream.laut.fm/the-beat-goes-on",
-	  "http://stream.laut.fm/northernsoul")
+# Senderliste LOESCHEN
+#sender = ("http://sc2.radiocaroline.net:10558/",
+#          "http://stream.laut.fm/1-hits70s",
+#          "http://streams.rsa-sachsen.de/rsa-beatles/mp3-192/mediaplayerrsa",
+#          "http://streams.rsa-sachsen.de/rsa-oldies/mp3-192/mediaplayerrsa",
+#          "http://laut.fm/oldies",
+#	  "http://stream.laut.fm/the-beat-goes-on",
+#	  "http://stream.laut.fm/northernsoul")
 # eine Umdrehung 40 klicks
 # Uebersetzung von 1:4 empfohlen
 
@@ -42,10 +43,6 @@ GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 time.sleep(1)
 # GPIO.output(20,GPIO.LOW)
 display.lcd_display_string("Sender suchen!", 2)
-# Funktion Playeraufruf --> löschen nach Test
-#def play():
-#	global terminal
-#	os.system(terminal)
 
 
 # Funktion für Tread Abfrage des Senderwählers K
@@ -86,19 +83,18 @@ while True:
 		frequenz = int(counter/4)
 		senderID = int(counter/8)
 		#print (counter, frequenz, senderID)
-		display.lcd_display_string(str(counter), 1)#zeile ausschalten
-		display.lcd_display_string(str(senderID), 2)#in den if-zweig verschiben und den Sender anzeigen
+		#display.lcd_display_string(str(counter), 1)#zeile ausschalten
+		#display.lcd_display_string(str(senderID), 2)#in den if-zweig verschiben und den Sender anzeigen
 		#sleep(5)
 		print (senderID, counter, frequenz)
 		if (frequenz % 2) and activplayer == 0:
 			#print (activplayer)
-			terminal = befehl + sender[senderID]
+			sender = senderliste.sender[senderID]
+			terminal = f"mocp --playit {sender[1]}"
 			os.system(terminal)
-			#GPIO.output(20,GPIO.HIGH)
-			#mpplayer.start()
+			display.lcd_display_string(sender[1]), 2)
 			activplayer = 1
 			#sleep(1)
 		if not(frequenz % 2):
-			os.system("mocp --stop") #ABSCHALTEN
-			#GPIO.output(20,GPIO.LOW)
+			#os.system("mocp --stop") #ABSCHALTEN
 			activplayer = 0
