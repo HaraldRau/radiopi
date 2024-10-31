@@ -8,4 +8,6 @@ def sender(id):
     ["Beat Goes on","http://stream.laut.fm/the-beat-goes-on"],
     ["Northern Soul","http://stream.laut.fm/northernsoul"]
   ]
+  if id >= len(sender):
+    id = len(sender)-1
   return sender[id]
