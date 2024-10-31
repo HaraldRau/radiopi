@@ -54,7 +54,6 @@ while True:
 	if counter < 0:
 		counter = 0
 	while cur_counter != counter:
-		#display.lcd_clear()
 		#print (counter)
 		cur_counter = counter
 		frequenz = int(counter/4)
@@ -69,7 +68,8 @@ while True:
 			terminal = f"mocp --playit {sender[1]}"
 			os.system(terminal)
 			anzeige = sender[0]
-			display.lcd_display_string(sender[0], 2)
+			display.lcd_clear()
+			display.lcd_display_string(anzeige, 2)
 			activplayer = 1
 		if not(frequenz % 2):
 			activplayer = 0
