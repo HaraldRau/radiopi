@@ -46,22 +46,20 @@ def senderwahl():
 			clkLastState = clkState
 			if menue == 0:
 				print(GPIO.input(sw))
-				display.lcd_display_string("---Setup---", 2)
+				display.lcd_display_string("----Setup----", 2)
 				time.sleep(2)
-				if menue == 0:
-					menue = 1
-					display.lcd_display_string("--Restart--", 2)
-					time.sleep(2)
+				display.lcd_display_string("---Restart---", 2)
+				time.sleep(2)
+				if GPIO.input(sw) == 1:
 					print("os.system('sudo /etc/init.d/radiopi restart')")
-				if menue == 0:
-					menue = 1
-					display.lcd_display_string("--Update--", 2)
-					time.sleep(2)
+				display.lcd_display_string("---Update---", 2)
+				time.sleep(2)
+				if GPIO.input(sw) == 1:
 					print("os.system('git pull https://github.com/HaraldRau/radiopi main')")
-				if menue == 0:
-					menue = 1
-					display.lcd_display_string("---Halt---", 2)
-					time.sleep(2)
+					print("os.system('sudo /etc/init.d/radiopi restart')")
+				display.lcd_display_string("----Halt----", 2)
+				time.sleep(2)
+				if GPIO.input(sw) == 1:
 					print("os.system('sudo halt')")
 				display.lcd_clear()
 				
