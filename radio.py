@@ -50,11 +50,6 @@ def senderwahl():
 				if GPIO.input(sw) == 0:
 					display.lcd_display_string("Neustart Radio", 1)
 					os.system('sudo reboot')
-				display.lcd_display_string("----Update----", 2)
-				time.sleep(2)
-				if GPIO.input(sw) == 0:
-					display.lcd_display_string("Update Radio", 1)
-					os.system('git pull https://github.com/HaraldRau/radiopi main')
 				display.lcd_display_string("-----Halt-----", 2)
 				time.sleep(2)
 				if GPIO.input(sw) == 0:
