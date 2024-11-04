@@ -14,6 +14,7 @@ sw = 13
 counter = 0
 cur_counter = 0
 activplayer = 0
+menue = 1
 
 # GPIO einrichten =============================================================
 
@@ -35,6 +36,7 @@ def senderwahl():
 		while True:
 			clkState = GPIO.input(clk)
 			dtState = GPIO.input(dt)
+			menue = GPIO.input(sw)
 			if clkState != clkLastState:
 				if dtState != clkState:
 					counter += 1
@@ -42,22 +44,26 @@ def senderwahl():
 					counter -= 1
 				#print (counter)
 			clkLastState = clkState
-			if GPIO.input(sw) == 0:
+			if menue == 0:
 				print(GPIO.input(sw))
 				display.lcd_display_string("---Setup---", 2)
 				time.sleep(2)
-				if GPIO.input(sw) == 0:
+				if menue == 0:
+					menue = 1
 					display.lcd_display_string("--Restart--", 2)
 					time.sleep(2)
 					print("os.system('sudo /etc/init.d/radiopi restart')")
-				if GPIO.input(sw) == 0:
+				if menue == 0:
+					menue = 1
 					display.lcd_display_string("--Update--", 2)
 					time.sleep(2)
 					print("os.system('git pull https://github.com/HaraldRau/radiopi main')")
-				if GPIO.input(sw) == 0:
+				if menue == 0:
+					menue = 1
 					display.lcd_display_string("---Halt---", 2)
 					time.sleep(2)
 					print("os.system('sudo halt')")
+				display.lcd_clear()
 				
 	finally:
 		GPIO.cleanup()
