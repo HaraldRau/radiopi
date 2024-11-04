@@ -28,24 +28,25 @@ display.lcd_display_string("Sender suchen!", 2)
 
 # Funktion für Tread Abfrage des Senderwählers K ==============================
 def senderwahl():
-        global counter
-        counter = 0
-        clkLastState = GPIO.input(clk)
-        try:
-                while True:
-                        clkState = GPIO.input(clk)
-                        dtState = GPIO.input(dt)
-                        if clkState != clkLastState:
-                                if dtState != clkState:
-                                        counter += 1
-                                else:
-                                        counter -= 1
-                                #print (counter)
-                                clkLastState = clkState
+	global counter
+	counter = 0
+	clkLastState = GPIO.input(clk)
+	try:
+		while True:
+			clkState = GPIO.input(clk)
+			dtState = GPIO.input(dt)
+			if clkState != clkLastState:
+				if dtState != clkState:
+					counter += 1
+				else:
+					counter -= 1
+				#print (counter)
+			clkLastState = clkState
 			if GPIO.input(sw) == 1:
+				print(GPIO.input(sw))
 				os.system('sudo halt')
-        finally:
-                GPIO.cleanup()
+	finally:
+		GPIO.cleanup()
 
 # Thread zuweisen und starten ==================================================
 sendersuche = Thread(target=senderwahl)
