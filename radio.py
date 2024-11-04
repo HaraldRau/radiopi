@@ -42,6 +42,8 @@ def senderwahl():
                                         counter -= 1
                                 #print (counter)
                                 clkLastState = clkState
+			if GPIO.input(sw) == 1:
+				os.system('sudo halt')
         finally:
                 GPIO.cleanup()
 
