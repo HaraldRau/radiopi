@@ -49,11 +49,14 @@ def senderwahl():
 				time.sleep(2)
 				if GPIO.input(sw) == 0:
 					display.lcd_display_string("Neustart Radio", 1)
+					time.sleep(2)
 					os.system('sudo reboot')
-				display.lcd_display_string("-----Halt-----", 2)
+				display.lcd_display_string("----Halt-------", 2)
 				time.sleep(2)
 				if GPIO.input(sw) == 0:
 					display.lcd_display_string("Anhalten Radio", 1)
+					time.sleep(2)
+					display.lcd_backlight(0)
 					os.system('sudo halt')
 				display.lcd_clear()
 				
