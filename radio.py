@@ -57,7 +57,7 @@ def senderwahl():
 					display.lcd_display_string("Anhalten Radio", 1)
 					time.sleep(2)
 					display.lcd_backlight(0)
-					os.system('sudo halt')
+					os.system('sudo halt -p')
 				display.lcd_clear()
 				
 	finally:
