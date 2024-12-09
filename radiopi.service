@@ -1,0 +1,16 @@
+[Unit]
+Description=RadioPi Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/hara/radiopi/radio.py
+ExecStop=/usr/bin/pkill -f /home/hara/radiopi/radio.py
+Restart=always
+User=pi
+Group=pi
+WorkingDirectory=/home/hara/radiopi
+StandardOutput=append:/var/log/radiopi.log
+StandardError=append:/var/log/radiopi.log
+
+[Install]
+WantedBy=multi-user.target
