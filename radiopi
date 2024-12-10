@@ -23,14 +23,15 @@ case "$1" in
 	stop)
 		echo "RadioPi wird beendet"
         	# Beende Programm
-        	killall mocp
-		killall python
+        	mocp -x
+		pkill -f /home/hara/radiopi/radio.py
         	;;
 	restart)
  		#Aktion wenn restart uebergeben wird
- 		echo "RadioPi wird neu gestartet"
- 		killall mocp
-		killall python
+ 		echo "RadioPi wird beendet"
+        	mocp -x
+		pkill -f /home/hara/radiopi/radio.py
+		echo "RadioPi wird gestartet"
 		mocp -S
 		mocp --volume=100
 		mocp --playit /home/hara/radiopi/ready.mp3
