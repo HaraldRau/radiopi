@@ -3,6 +3,7 @@ import time
 import os
 import drivers
 import senderliste
+import atexit
 display = drivers.Lcd(0x27)
 display.lcd_display_string("Radio Pi V 0.10", 1)
 from threading import Thread
@@ -26,6 +27,8 @@ GPIO.setup(sw, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 time.sleep(1)
 display.lcd_display_string("Sender suchen!", 2)
 
+# Automatische Bereinigung bei Beenden des Programms ==========================
+atexit.register(GPIO.cleanup)
 
 # Funktion für Tread Abfrage des Senderwählers K ==============================
 def senderwahl():
@@ -80,7 +83,7 @@ while True:
 		#print (counter, frequenz, senderID)
 		#display.lcd_display_string(str(counter), 1)# debug
 		#display.lcd_display_string(str(senderID), 2)# debug
-		print (senderID, counter, frequenz) # debug
+		#print (senderID, counter, frequenz) # debug
 		if (frequenz % 2) and activplayer == 0:
 			#print (activplayer)
 			sender = senderliste.sender(senderID)
