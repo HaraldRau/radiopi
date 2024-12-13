@@ -10,7 +10,6 @@ do
 done
 sudo /etc/init.d/radiopi start
 sleep 2
-alsactl --file  /home/hara/asound.state restore
 echo "Radio ist gestartet"
 
 =======================================================================NEU============================================================================================
