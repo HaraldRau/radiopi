@@ -16,6 +16,7 @@ case "$1" in
         	echo "RadioPi wird gestartet"
         	# Starte Programm
 		mocp -S
+		alsactl --file  /home/hara/asound.state restore
 		mocp --playit /home/hara/radiopi/ready.mp3
         	python /home/hara/radiopi/radio.py
         	;;
@@ -32,7 +33,7 @@ case "$1" in
 		pkill -f /home/hara/radiopi/radio.py
 		echo "RadioPi wird gestartet"
 		mocp -S
-		mocp --volume=100
+		alsactl --file  /home/hara/asound.state restore
 		mocp --playit /home/hara/radiopi/ready.mp3
 		python /home/hara/radiopi/radio.py
 		;;
