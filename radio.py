@@ -7,7 +7,6 @@ import atexit
 display = drivers.Lcd(0x27)
 display.lcd_display_string("Radio Pi V 0.10", 1)
 from threading import Thread
-#os.system('alsactl --file  /home/hara/asound.state restore')
 
 # Variablen ====================================================================
 clk = 5
