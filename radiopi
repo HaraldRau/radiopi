@@ -16,7 +16,6 @@ case "$1" in
         	echo "RadioPi wird gestartet"
         	# Starte Programm
 		mocp -S
-		mocp --volume=80
 		mocp --playit /home/hara/radiopi/ready.mp3
         	python /home/hara/radiopi/radio.py
         	;;
