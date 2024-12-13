@@ -8,9 +8,9 @@ do
     # Warten auf Verbindung
     sleep 1
 done
-alsactl --file  /home/hara/asound.state store
 sudo /etc/init.d/radiopi start
-sleep 5
+sleep 2
+alsactl --file  /home/hara/asound.state store
 echo "Radio ist gestartet"
 
 =======================================================================NEU============================================================================================
