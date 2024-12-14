@@ -78,8 +78,8 @@ while True:
 	while cur_counter != counter:
 		#print (counter)
 		cur_counter = counter
-		frequenz = int(counter/4)
-		senderID = int(counter/8)
+		frequenz = int(counter/2)
+		senderID = int(counter/4)
 		#print (counter, frequenz, senderID)
 		#display.lcd_display_string(str(counter), 1)# debug
 		#display.lcd_display_string(str(senderID), 2)# debug
