@@ -2,7 +2,8 @@ def sender(id):
   sender = [
     ["Radio Caroline","http://sc2.radiocaroline.net:10558/"],
     ["Radio Nora","http://streams.norawebstreams.de/nora-oldies/mp3-192/"],
-    ["Radio Nora","http://streams.norawebstreams.de/nora-weihnachten/mp3-192/"],
+    ["WeihnachstRadio","https://stream.laut.fm/weihnachtsradio"],
+    ["Christmas","https://stream.laut.fm/weihnachtszauber"],
     ["RSA Beatles","http://streams.rsa-sachsen.de/rsa-beatles/mp3-192/mediaplayerrsa"],
     ["RSA Oldies","http://streams.rsa-sachsen.de/rsa-oldies/mp3-192/mediaplayerrsa"],
     ["Jukebox Hits","https://stream.laut.fm/50s60s-radio"],
