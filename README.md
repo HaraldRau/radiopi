@@ -4,6 +4,7 @@
 
 <h4>Installation</h4>
 <li>
-  <ul>Startscript /usr/local/bin/startscript.sh</ul>
+  <ul>Startscript nach /usr/local/bin/startscript.sh kopieren</ul>
+  <ul>Dienst nach /etc/init.d/radiopi kopieren</ul>
   <ul>Dienst starten mit /etc/init.d/radiopi start</ul>
 </li>
