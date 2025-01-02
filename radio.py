@@ -89,7 +89,7 @@ while True:
 			sender = senderliste.sender(senderID)
 			terminal = f"mocp --playit {sender[1]}"
 			os.system(terminal)
-			os.system('mocp -v 80')
+			os.system('mocp -v 85')
 			anzeige = sender[0]
 			display.lcd_clear()
 			display.lcd_display_string(anzeige, 2)
