@@ -47,7 +47,15 @@ def senderwahl():
 				#print (counter)
 			clkLastState = clkState
 			if GPIO.input(sw) == 0:
-				print(GPIO.input(sw))
+				#==Volumio
+				display.lcd_display_string("-----Volumio----", 2)
+				time.sleep(2)
+				if GPIO.input(sw) == 0:
+					display.lcd_display_string("verbinden", 1)
+					time.sleep(2)
+					#os.system('sudo halt -p')
+				display.lcd_clear()
+				#==Neustart==
 				display.lcd_display_string("-----Restart----", 2)
 				time.sleep(2)
 				if GPIO.input(sw) == 0:
