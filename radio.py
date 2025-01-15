@@ -53,7 +53,7 @@ def senderwahl():
 				if GPIO.input(sw) == 0:
 					display.lcd_display_string("verbinden", 1)
 					time.sleep(2)
-					#os.system('sudo halt -p')
+					os.system('sudo mount -t cifs -o rw,guest,vers=1.0 //192.168.178.20/usb /home/hara/volumio')
 				display.lcd_clear()
 				#==Neustart==
 				display.lcd_display_string("-----Restart----", 2)
