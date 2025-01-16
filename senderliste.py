@@ -9,7 +9,7 @@ def sender(id):
     ["Radio 70","https://stream.laut.fm/radio70"],
     ["Our Generation","https://stream.laut.fm/oldies"],
     ["Beat Goes on","http://stream.laut.fm/the-beat-goes-on"],
-    ["Northern Soul","http://stream.laut.fm/northernsoul"]
+    ["Northern Soul","http://stream.laut.fm/northernsoul"],
     ["Volumio","/home/hara/volumio/MUSIK/Manfred_Mann/Greatest_Hits/*.mp3"]
   ]
   if id >= len(sender):
