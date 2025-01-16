@@ -10,7 +10,7 @@ def sender(id):
     ["Our Generation","https://stream.laut.fm/oldies"],
     ["Beat Goes on","http://stream.laut.fm/the-beat-goes-on"],
     ["Northern Soul","http://stream.laut.fm/northernsoul"],
-    ["Volumio","/home/hara/volumio/MUSIK/Manfred_Mann/*.mp3"]
+    ["Volumio","/home/hara/volumio/MUSIK/Manfred_Mann/The_Five_Faces_of_Manfred_Mann/*.mp3"]
   ]
   if id >= len(sender):
     id = len(sender)-1
