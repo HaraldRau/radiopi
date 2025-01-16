@@ -1,6 +1,6 @@
 def sender(id):
   sender = [
-    ["Volumio","/home/hara/volumio/volumio.m3u"],
+    ["Volumio","/home/hara/volumio/MUSIK/Manfred_Mann/The_Five_Faces_of_Manfred_Mann/*.mp3"],
     ["Radio Caroline","http://sc2.radiocaroline.net:10558/"],
     ["Radio Nora","http://streams.norawebstreams.de/nora-oldies/mp3-192/"],
     ["RSA Beatles","http://streams.rsa-sachsen.de/rsa-beatles/mp3-192/mediaplayerrsa"],
