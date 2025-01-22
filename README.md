@@ -3,15 +3,12 @@
 <img src="bilder/RadioPiKY040_Steckplatine.png" width="400">
 
 <h4>Installation</h4>
-
-* sudo cp radiopi/startscript.sh /usr/local/bin/startscript.sh
-
-* Startscript nach /usr/local/bin/startscript.sh kopieren
-
-* Dienst nach /etc/init.d/radiopi kopieren
-
-* Dienst starten mit /etc/init.d/radiopi start
-
+<ul>
+<li>sudo cp radiopi/startscript.sh /usr/local/bin/startscript.sh</li>
+<li>Startscript nach /usr/local/bin/startscript.sh kopieren</li>
+<li>Dienst nach /etc/init.d/radiopi kopieren</li>
+<li>Dienst starten mit /etc/init.d/radiopi start</li>  
+</ul>
 <h4>Update</h4>
-* @reboot		hara	git -C /home/hara/radiopi/ https://github.com/HaraldRau/radiopi.git
-Zeile in sudo nano /etc/crontab eintragen
+<p>@reboot		hara	git -C /home/hara/radiopi/ https://github.com/HaraldRau/radiopi.git</p>
+<p>Zeile in sudo nano /etc/crontab eintragen</p>
