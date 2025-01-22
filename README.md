@@ -11,3 +11,7 @@
 * Dienst nach /etc/init.d/radiopi kopieren
 
 * Dienst starten mit /etc/init.d/radiopi start
+
+<h4>Update</h4>
+* @reboot		hara	git -C /home/hara/radiopi/ https://github.com/HaraldRau/radiopi.git
+Zeile in sudo nano /etc/crontab eintragen
