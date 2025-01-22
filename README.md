@@ -4,6 +4,8 @@
 
 <h4>Installation</h4>
 
+* sudo cp radiopi/startscript.sh /usr/local/bin/startscript.sh
+
 * Startscript nach /usr/local/bin/startscript.sh kopieren
 
 * Dienst nach /etc/init.d/radiopi kopieren
