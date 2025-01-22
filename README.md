@@ -10,5 +10,7 @@
 <li>Dienst starten mit /etc/init.d/radiopi start</li>  
 </ul>
 <h4>Update</h4>
-<p>@reboot		hara	git -C /home/hara/radiopi/ https://github.com/HaraldRau/radiopi.git</p>
-<p>Zeile in sudo nano /etc/crontab eintragen</p>
+<ul>
+  <li>@reboot		hara	git -C /home/hara/radiopi/ https://github.com/HaraldRau/radiopi.git</li>
+  <li><code>Zeile in sudo nano /etc/crontab eintragen</code></li>
+</ul>
