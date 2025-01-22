@@ -10,10 +10,10 @@
 <li>Dienst starten mit /etc/init.d/radiopi start</li>  
 </ul>
 <h4>Autostart</h4>
-in der Konsole:
+<p>...in der Konsole:
 <code>sudo nano /etc/rc.local</code>
-ausführen und die Datei bearbeiten!
-<code>
+ausführen und die Datei bearbeiten!</p>
+<p><code>
   #!/bin/sh -e
 #
 # rc.local
@@ -34,7 +34,7 @@ fi
 <b># diese Zeile eintragen</b>
   /usr/local/bin/startscript.sh # WLAN abfragen und starten
 exit 0
-</code>
+</code></p>
 <h4>Update</h4>
 <ul>
   <li><code>@reboot		hara	git -C /home/hara/radiopi/ https://github.com/HaraldRau/radiopi.git</code></li>
