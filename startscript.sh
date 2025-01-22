@@ -1,7 +1,8 @@
 #!/bin/bash
 # /usr/local/bin/startscript.sh
 sudo iwconfig wlan0 power off
-
+cd /home/hara/radiopi/
+git pull https://github.com/HaraldRau/radiopi.git
 while ! ( ifconfig wlan0 | grep -q "192.168.178.44" )
 do
     echo "WLAN wird verbunden"
