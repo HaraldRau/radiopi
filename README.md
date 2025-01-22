@@ -11,6 +11,6 @@
 </ul>
 <h4>Update</h4>
 <ul>
-  <li>@reboot		hara	git -C /home/hara/radiopi/ https://github.com/HaraldRau/radiopi.git</li>
-  <li><code>Zeile in sudo nano /etc/crontab eintragen</code></li>
+  <li><code>@reboot		hara	git -C /home/hara/radiopi/ https://github.com/HaraldRau/radiopi.git</code></li>
+  <li>Zeile in <code>sudo nano /etc/crontab eintragen</code></li>
 </ul>
