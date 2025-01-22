@@ -10,7 +10,9 @@
 <li>Dienst starten mit /etc/init.d/radiopi start</li>  
 </ul>
 <h4>Autostart</h4>
+in der Konsole:
 <code>sudo nano /etc/rc.local</code>
+ausführen und die Datei bearbeiten!
 <code>
   #!/bin/sh -e
 #
