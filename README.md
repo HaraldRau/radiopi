@@ -35,3 +35,14 @@ exit 0
   <li><code>@reboot		hara	git -C /home/hara/radiopi/ https://github.com/HaraldRau/radiopi.git</code></li>
   <li>Zeile in <code>sudo nano /etc/crontab</code> eintragen</li>
 </ul>
+<h4>moc Msuik on Console</h4>
+<h5>Befehle</h5>
+<ul>
+  <li>mocp -S Server starten</li>
+  <li>mocp -c löscht die aktuelle Playliste</li>
+  <li>mocp -a /pfad/zur/msuik fügt das Verzeichnis zur aktuellen Playliste hinzu</li>
+  <li>mocp -p spielt die aktuelle Playliste ab</li>
+  <li>mocp -f spielt den nächsten Titel ab</li>
+  <li>mocp -x beendet den Server</li>
+  <li>mocp -h gibt die Hilfe aus</li>
+</ul>
