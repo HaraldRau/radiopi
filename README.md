@@ -32,7 +32,7 @@ exit 0
 </code></p>
 <h4>Update</h4>
 <ul>
-  <li><code>@reboot		hara	git -C /home/hara/radiopi/ https://github.com/HaraldRau/radiopi.git</code></li>
+  <li><code>@reboot		hara	git -C /home/hara/radiopi/ pull https://github.com/HaraldRau/radiopi.git</code></li>
   <li>Zeile in <code>sudo nano /etc/crontab</code> eintragen</li>
 </ul>
 <h4>moc Msuik on Console</h4>
