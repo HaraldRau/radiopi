@@ -9,6 +9,7 @@ do
 done
 git -C /home/hara/radiopi/ pull https://github.com/HaraldRau/radiopi.git
 sleep 1
+echo "Update erfolgreich!"
 sudo /etc/init.d/radiopi start
 sleep 1
-echo "Radio ist gestartet"
+echo "RadioPi gestartet!"
