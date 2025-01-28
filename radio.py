@@ -15,7 +15,7 @@ sw = 13
 counter = 0
 cur_counter = 0
 activplayer = 0
-menue = 1
+menue = 0
 
 # GPIO einrichten =============================================================
 
@@ -33,7 +33,9 @@ atexit.register(GPIO.cleanup)
 # Funktion für Tread Abfrage des Senderwählers K ==============================
 def senderwahl():
 	global counter
+	global menue
 	counter = 0
+	menue = 0
 	clkLastState = GPIO.input(clk)
 	try:
 		while True:
@@ -79,7 +81,7 @@ sendersuche = Thread(target=senderwahl)
 sendersuche.start()
 
 # Hauptprogramm ===============================================================
-while True:
+while menue == 0:
 	# print(counter, cur_counter)
 	if counter < 0:
 		counter = 0
