@@ -35,7 +35,7 @@ exit 0
   <li><code>git -C /home/hara/radiopi/ pull https://github.com/HaraldRau/radiopi.git</code></li>
   <li>Zeile in <code>startscript.sh</code> eintragen</li>
 </ul>
-<h4>moc Msuik on Console</h4>
+<h4>moc Musik on Console</h4>
 <h5>Befehle</h5>
 <ul>
   <li>mocp -S Server starten</li>
