@@ -15,7 +15,7 @@ sw = 13
 counter = 0
 cur_counter = 0
 activplayer = 0
-menue = 0
+mode = 0 # mode 0 -> Internetsender mode 1 -> USB-Stick über Playliste mode 3 -> dnla-Server
 
 # GPIO einrichten =============================================================
 
@@ -33,9 +33,9 @@ atexit.register(GPIO.cleanup)
 # Funktion für Tread Abfrage des Senderwählers K ==============================
 def senderwahl():
 	global counter
-	global menue
+	global mode
 	counter = 0
-	menue = 0
+	mode = 0
 	clkLastState = GPIO.input(clk)
 	try:
 		while True:
@@ -49,13 +49,14 @@ def senderwahl():
 				#print (counter)
 			clkLastState = clkState
 			if GPIO.input(sw) == 0:
-				#==Volumio
-				display.lcd_display_string("-----Volumio----", 2)
+				#==USB==
+				display.lcd_display_string("------USB------", 2)
 				time.sleep(2)
 				if GPIO.input(sw) == 0:
-					display.lcd_display_string("verbinden", 1)
+					display.lcd_display_string("mount USB", 1)
 					time.sleep(2)
-					os.system('sudo mount -t cifs -o rw,guest,vers=1.0 //192.168.178.20/usb /home/hara/volumio')
+					os.system('sudo mount /dev/sda /home/hara/usb')
+					mode = 1
 				display.lcd_clear()
 				#==Neustart==
 				display.lcd_display_string("-----Restart----", 2)
@@ -81,8 +82,7 @@ sendersuche = Thread(target=senderwahl)
 sendersuche.start()
 
 # Hauptprogramm ===============================================================
-while menue == 0:
-	# print(counter, cur_counter)
+while mode == 0:
 	if counter < 0:
 		counter = 0
 	while cur_counter != counter:
@@ -90,10 +90,6 @@ while menue == 0:
 		cur_counter = counter
 		frequenz = int(counter/2)
 		senderID = int(counter/4)
-		#print (counter, frequenz, senderID)
-		#display.lcd_display_string(str(counter), 1)# debug
-		#display.lcd_display_string(str(senderID), 2)# debug
-		#print (senderID, counter, frequenz) # debug
 		if (frequenz % 2) and activplayer == 0:
 			#print (activplayer)
 			sender = senderliste.sender(senderID)
@@ -106,3 +102,10 @@ while menue == 0:
 			activplayer = 1
 		if not(frequenz % 2):
 			activplayer = 0
+while mode == 1:
+	display.lcd_clear()
+	display.lcd_display_string(USB Playliste, 1)
+	display.lcd_display_string(play -i, 2)
+	time.sleep(2)
+	mode == 0
+	
