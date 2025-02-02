@@ -104,8 +104,8 @@ while mode == 0:
 			activplayer = 0
 while mode == 1:
 	display.lcd_clear()
-	display.lcd_display_string(USB Playliste, 1)
-	display.lcd_display_string(play -i, 2)
+	display.lcd_display_string("USB Playliste", 1)
+	display.lcd_display_string("play -i", 2)
 	time.sleep(2)
 	mode == 0
 	
