@@ -50,25 +50,25 @@ def senderwahl():
 			clkLastState = clkState
 			if GPIO.input(sw) == 0:
 				#==USB==
-				display.lcd_display_string("------USB------", 2)
+				display.lcd_display_string("USB verbinden", 1)
 				time.sleep(2)
 				if GPIO.input(sw) == 0:
-					display.lcd_display_string("mount USB", 1)
+					display.lcd_display_string("sudo mount USB", 2)
 					time.sleep(2)
 					os.system('sudo mount /dev/sda /home/hara/usb')
 					mode = 1
 				display.lcd_clear()
 				#==Neustart==
-				display.lcd_display_string("-----Restart----", 2)
+				display.lcd_display_string("Radio Neustart", 1)
 				time.sleep(2)
 				if GPIO.input(sw) == 0:
-					display.lcd_display_string("Neustart Radio", 1)
+					display.lcd_display_string("sudo reboot", 2)
 					time.sleep(2)
 					os.system('sudo reboot')
-				display.lcd_display_string("-----Halt-------", 2)
+				display.lcd_display_string("Radio Anhalten", 1)
 				time.sleep(2)
 				if GPIO.input(sw) == 0:
-					display.lcd_display_string("Anhalten Radio", 1)
+					display.lcd_display_string("sudo halt -p", 2)
 					time.sleep(2)
 					display.lcd_backlight(0)
 					os.system('sudo halt -p')
