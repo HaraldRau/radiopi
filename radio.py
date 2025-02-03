@@ -26,6 +26,7 @@ GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(sw, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 time.sleep(1)
 display.lcd_display_string("Sender suchen!", 2)
+time.sleep(1)
 
 # Automatische Bereinigung bei Beenden des Programms ==========================
 atexit.register(GPIO.cleanup)
@@ -83,6 +84,7 @@ sendersuche.start()
 
 # Hauptprogramm ===============================================================
 if mode == 0:
+	display.lcd_clear()
 	display.lcd_display_string("Radio ON", 1)
 	print(counter)
 	if counter < 0:
