@@ -115,4 +115,5 @@ while True:
 		activeplayer = 0
 		#counter = 0
 		#cur_counter = 0
+		display.lcd_clear()
 	
