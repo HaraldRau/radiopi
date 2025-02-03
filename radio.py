@@ -83,7 +83,7 @@ sendersuche = Thread(target=senderwahl)
 sendersuche.start()
 
 # Hauptprogramm ===============================================================
-if mode == 0:
+while mode == 0:
 	display.lcd_clear()
 	display.lcd_display_string("Radio ON", 1)
 	print(counter)
@@ -105,7 +105,7 @@ if mode == 0:
 			activplayer = 1
 		if not(frequenz % 2):
 			activplayer = 0
-else:
+while mode == 1:
 	display.lcd_display_string("USB Playliste", 1)
 	display.lcd_display_string("play -i", 2)
 	os.system('sudo mount /dev/sda /home/hara/usb')
