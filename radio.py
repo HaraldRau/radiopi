@@ -56,7 +56,6 @@ def senderwahl():
 				if GPIO.input(sw) == 0:
 					display.lcd_display_string("sudo mount USB", 2)
 					time.sleep(2)
-					os.system('sudo mount /dev/sda /home/hara/usb')
 					mode = 1
 				display.lcd_clear()
 				#==Neustart==
@@ -107,6 +106,7 @@ if mode == 0:
 else:
 	display.lcd_display_string("USB Playliste", 1)
 	display.lcd_display_string("play -i", 2)
+	os.system('sudo mount /dev/sda /home/hara/usb')
 	time.sleep(2)
 	display.lcd_clear()
 	mode = 0
