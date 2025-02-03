@@ -84,7 +84,7 @@ sendersuche.start()
 
 # Hauptprogramm ===============================================================
 while mode == 0:
-	print(counter)
+	print(counter,cur_counter)
 	print(mode)
 	if counter < 0:
 		counter = 0
