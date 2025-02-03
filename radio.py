@@ -83,12 +83,13 @@ sendersuche = Thread(target=senderwahl)
 sendersuche.start()
 
 # Hauptprogramm ===============================================================
-while mode == 0:
-	print(counter,cur_counter)
-	print(mode)
-	if counter < 0:
-		counter = 0
-	while cur_counter != counter:
+while True:
+	while mode == 0:
+		print(counter,cur_counter)
+		print(mode)
+		if counter < 0:
+			counter = 0
+		while cur_counter != counter:
 		cur_counter = counter
 		frequenz = int(counter/2)
 		senderID = int(counter/4)
@@ -104,14 +105,14 @@ while mode == 0:
 			activplayer = 1
 		if not(frequenz % 2):
 			activplayer = 0
-while mode == 1:
-	display.lcd_display_string("USB Playliste", 1)
-	display.lcd_display_string("play -i", 2)
-	# os.system('sudo mount /dev/sda /home/hara/usb')
-	time.sleep(2)
-	display.lcd_clear()
-	mode = 0
-	activeplayer = 0
-	counter = 0
-	cur_counter = 0
+	while mode == 1:
+		display.lcd_display_string("USB Playliste", 1)
+		display.lcd_display_string("play -i", 2)
+		# os.system('sudo mount /dev/sda /home/hara/usb')
+		time.sleep(2)
+		display.lcd_clear()
+		mode = 0
+		activeplayer = 0
+		#counter = 0
+		#cur_counter = 0
 	
