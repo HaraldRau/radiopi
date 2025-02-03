@@ -83,9 +83,9 @@ sendersuche = Thread(target=senderwahl)
 sendersuche.start()
 
 # Hauptprogramm ===============================================================
-while mode == 0:
+if mode == 0:
 	display.lcd_display_string("Radio ON", 1)
-	display.lcd_display_string(counter, 2)
+	print(counter)
 	if counter < 0:
 		counter = 0
 	while cur_counter != counter:
@@ -104,7 +104,7 @@ while mode == 0:
 			activplayer = 1
 		if not(frequenz % 2):
 			activplayer = 0
-while mode == 1:
+else:
 	display.lcd_display_string("USB Playliste", 1)
 	display.lcd_display_string("play -i", 2)
 	time.sleep(2)
