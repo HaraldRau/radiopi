@@ -84,6 +84,8 @@ sendersuche.start()
 
 # Hauptprogramm ===============================================================
 while mode == 0:
+	display.lcd_display_string("Radio ON", 1)
+	display.lcd_display_string(counter, 2)
 	if counter < 0:
 		counter = 0
 	while cur_counter != counter:
@@ -109,4 +111,6 @@ while mode == 1:
 	display.lcd_clear()
 	mode = 0
 	activeplayer = 0
+	counter = 0
+	cur_counter = 0
 	
