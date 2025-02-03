@@ -87,7 +87,6 @@ while mode == 0:
 	if counter < 0:
 		counter = 0
 	while cur_counter != counter:
-		#print (counter)
 		cur_counter = counter
 		frequenz = int(counter/2)
 		senderID = int(counter/4)
@@ -104,10 +103,10 @@ while mode == 0:
 		if not(frequenz % 2):
 			activplayer = 0
 while mode == 1:
-	
 	display.lcd_display_string("USB Playliste", 1)
 	display.lcd_display_string("play -i", 2)
 	time.sleep(2)
 	display.lcd_clear()
 	mode = 0
+	activeplayer = 0
 	
