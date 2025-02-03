@@ -90,21 +90,21 @@ while True:
 		if counter < 0:
 			counter = 0
 		while cur_counter != counter:
-		cur_counter = counter
-		frequenz = int(counter/2)
-		senderID = int(counter/4)
-		if (frequenz % 2) and activplayer == 0:
-			#print (activplayer)
-			sender = senderliste.sender(senderID)
-			terminal = f"mocp --playit {sender[1]}"
-			os.system(terminal)
-			os.system('mocp -v 85')
-			anzeige = sender[0]
-			display.lcd_clear()
-			display.lcd_display_string(anzeige, 2)
-			activplayer = 1
-		if not(frequenz % 2):
-			activplayer = 0
+			cur_counter = counter
+			frequenz = int(counter/2)
+			senderID = int(counter/4)
+			if (frequenz % 2) and activplayer == 0:
+				#print (activplayer)
+				sender = senderliste.sender(senderID)
+				terminal = f"mocp --playit {sender[1]}"
+				os.system(terminal)
+				os.system('mocp -v 85')
+				anzeige = sender[0]
+				display.lcd_clear()
+				display.lcd_display_string(anzeige, 2)
+				activplayer = 1
+			if not(frequenz % 2):
+				activplayer = 0
 	while mode == 1:
 		display.lcd_display_string("USB Playliste", 1)
 		display.lcd_display_string("play -i", 2)
