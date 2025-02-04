@@ -5,14 +5,14 @@ import drivers
 import senderliste
 import atexit
 display = drivers.Lcd(0x27)
-display.lcd_display_string("Radio Pi V 0.10", 1)
+display.lcd_display_string("Radio Pi V 0.90", 1)
 from threading import Thread
 
 # Variablen ====================================================================
 clk = 5
 dt = 6
 sw = 13
-counter = 0
+counter = 1
 cur_counter = 0
 activplayer = 0
 mode = 0 # mode 0 -> Internetsender mode 1 -> USB-Stick über Playliste mode 3 -> dnla-Server
@@ -25,8 +25,8 @@ GPIO.setup(clk, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(sw, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 time.sleep(1)
-display.lcd_display_string("Sender suchen!", 2)
-time.sleep(1)
+display.lcd_display_string("Radio ON!", 2)
+time.sleep(2)
 
 # Automatische Bereinigung bei Beenden des Programms ==========================
 atexit.register(GPIO.cleanup)
@@ -58,6 +58,7 @@ def senderwahl():
 					display.lcd_display_string("sudo mount USB", 2)
 					time.sleep(2)
 					mode = 1
+					display.lcd_clear()
 				display.lcd_clear()
 				#==Neustart==
 				display.lcd_display_string("Radio Neustart", 1)
@@ -85,8 +86,8 @@ sendersuche.start()
 # Hauptprogramm ===============================================================
 while True:
 	while mode == 0:
-		print(counter,cur_counter)
-		print(mode)
+		#print(counter,cur_counter)
+		#print(mode)
 		if counter < 0:
 			counter = 0
 		while cur_counter != counter:
@@ -113,7 +114,7 @@ while True:
 		display.lcd_clear()
 		mode = 0
 		activeplayer = 0
-		#counter = 0
+		counter = 1
 		#cur_counter = 0
 		display.lcd_clear()
 	
