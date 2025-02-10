@@ -12,7 +12,7 @@ from threading import Thread
 clk = 5
 dt = 6
 sw = 13
-counter = 1
+counter = 0
 cur_counter = 0
 activplayer = 0
 mode = 0 # mode 0 -> Internetsender mode 1 -> USB-Stick über Playliste mode 3 -> dnla-Server
