@@ -107,9 +107,10 @@ while True:
 				activplayer = 0
 	while mode == 1:
 		display.lcd_display_string("USB Playliste", 1)
-		display.lcd_display_string("play -i", 2)
 		try:
 			os.system('sudo mount /dev/sda /home/hara/usb')
+		finally:
+			display.lcd_display_string("verbunden", 2)
 		os.system('mocp -P')
 		time.sleep(2)
 		display.lcd_clear()
