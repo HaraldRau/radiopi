@@ -110,12 +110,12 @@ while True:
 		try:
 			os.system('sudo mount /dev/sda /home/hara/usb')
 		finally:
-			display.lcd_display_string("verbunden", 2)
+			display.lcd_display_string("USB verbunden", 2)
 		os.system('mocp -P')
 		time.sleep(2)
 		display.lcd_clear()
 		mode = 0
 		activeplayer = 0
 		counter = 1
-		#cur_counter = 0
+		cur_counter = 0
 	
