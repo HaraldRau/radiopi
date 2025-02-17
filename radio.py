@@ -108,11 +108,13 @@ while True:
 	while mode == 1:
 		display.lcd_display_string("USB Playliste", 1)
 		display.lcd_display_string("play -i", 2)
-		# os.system('sudo mount /dev/sda /home/hara/usb')
+		try:
+			os.system('sudo mount /dev/sda /home/hara/usb')
 		time.sleep(2)
 		display.lcd_clear()
 		mode = 0
 		activeplayer = 0
 		counter = 1
+		os.system('mocp -P')
 		#cur_counter = 0
 	
