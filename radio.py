@@ -55,38 +55,41 @@ def senderwahl():
 				#==USB==
 				display.lcd_clear()
 				display.lcd_display_string("USB            ", 1)
-				time.sleep(2)
+				time.sleep(1)
 				if GPIO.input(sw) == 0:
 					display.lcd_display_string("sudo mount USB ", 2)
-					time.sleep(2)
+					time.sleep(1)
 					mode = 1
 					display.lcd_clear()
 	
 				#==Radio==
 				display.lcd_clear()
 				display.lcd_display_string("RADIO          ", 1)
-				time.sleep(2)
+				time.sleep(1)
 				if GPIO.input(sw) == 0:
 					display.lcd_display_string("RADIO ON      ", 2)
-					time.sleep(2)
+					time.sleep(1)
 					activeplayer = 0
 					mode = 0
+					os.system('moc -P')
+					counter = 1
+					cur_counter = 0
 					display.lcd_clear()
 				
 				#==Neustart==
 				display.lcd_display_string("Neustart       ", 1)
-				time.sleep(2)
+				time.sleep(1)
 				if GPIO.input(sw) == 0:
 					display.lcd_display_string("sudo reboot", 2)
-					time.sleep(2)
+					time.sleep(1)
 					os.system('sudo reboot')
 
 				#==Anhalten==
 				display.lcd_display_string("Anhalten       ", 1)
-				time.sleep(2)
+				time.sleep(1)
 				if GPIO.input(sw) == 0:
 					display.lcd_display_string("sudo halt -p", 2)
-					time.sleep(2)
+					time.sleep(1)
 					display.lcd_backlight(0)
 					os.system('sudo halt -p')
 				display.lcd_clear()
@@ -134,7 +137,4 @@ while True:
 		time.sleep(2)
 		display.lcd_clear()
 		mode = 2
-		# activeplayer = 0
-		# counter = 1
-		# cur_counter = 0
 	
