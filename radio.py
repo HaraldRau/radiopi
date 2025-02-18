@@ -35,6 +35,7 @@ atexit.register(GPIO.cleanup)
 def senderwahl():
 	global counter
 	global mode
+	global activeplayer
 	counter = 0
 	mode = 0
 	clkLastState = GPIO.input(clk)
@@ -50,23 +51,38 @@ def senderwahl():
 				#print (counter)
 			clkLastState = clkState
 			if GPIO.input(sw) == 0:
+	
 				#==USB==
 				display.lcd_clear()
-				display.lcd_display_string("USB verbinden", 1)
+				display.lcd_display_string("USB            ", 1)
 				time.sleep(2)
 				if GPIO.input(sw) == 0:
-					display.lcd_display_string("sudo mount USB", 2)
+					display.lcd_display_string("sudo mount USB ", 2)
 					time.sleep(2)
 					mode = 1
 					display.lcd_clear()
+	
+				#==Radio==
+				display.lcd_clear()
+				display.lcd_display_string("RADIO          ", 1)
+				time.sleep(2)
+				if GPIO.input(sw) == 0:
+					display.lcd_display_string("RADIO ON      ", 2)
+					time.sleep(2)
+					activeplayer = 0
+					mode = 0
+					display.lcd_clear()
+				
 				#==Neustart==
-				display.lcd_display_string("Radio Neustart", 1)
+				display.lcd_display_string("Neustart       ", 1)
 				time.sleep(2)
 				if GPIO.input(sw) == 0:
 					display.lcd_display_string("sudo reboot", 2)
 					time.sleep(2)
 					os.system('sudo reboot')
-				display.lcd_display_string("Radio Anhalten", 1)
+
+				#==Anhalten==
+				display.lcd_display_string("Anhalten       ", 1)
 				time.sleep(2)
 				if GPIO.input(sw) == 0:
 					display.lcd_display_string("sudo halt -p", 2)
@@ -112,10 +128,12 @@ while True:
 		finally:
 			display.lcd_display_string("USB verbunden", 2)
 		os.system('mocp -P')
+		os.system('mocp -a /home/hara/usb/')
+		os.system('mocp -p')
 		time.sleep(2)
 		display.lcd_clear()
-		mode = 0
-		activeplayer = 0
-		counter = 1
-		cur_counter = 0
+		# mode = 0
+		# activeplayer = 0
+		# counter = 1
+		# cur_counter = 0
 	
