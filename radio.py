@@ -71,7 +71,7 @@ def senderwahl():
 					time.sleep(1)
 					activeplayer = 0
 					mode = 0
-					os.system('moc -P')
+					os.system('mocp -P')
 					counter = 1
 					cur_counter = 0
 					display.lcd_clear()
