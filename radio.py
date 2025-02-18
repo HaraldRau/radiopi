@@ -130,9 +130,10 @@ while True:
 		os.system('mocp -P')
 		os.system('mocp -a /home/hara/usb/')
 		os.system('mocp -p')
+		os.system('mocp -v 100')
 		time.sleep(2)
 		display.lcd_clear()
-		# mode = 0
+		mode = 2
 		# activeplayer = 0
 		# counter = 1
 		# cur_counter = 0
