@@ -137,4 +137,5 @@ while True:
 		time.sleep(2)
 		display.lcd_clear()
 		mode = 2
-	
+	while mode == 2:
+		time.sleep(10)
