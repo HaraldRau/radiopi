@@ -40,7 +40,7 @@ exit 0
 <ul>
   <li>mocp -S Server starten</li>
   <li>mocp -c löscht die aktuelle Playliste</li>
-  <li>mocp -a /pfad/zur/msuik fügt das Verzeichnis zur aktuellen Playliste hinzu</li>
+  <li>mocp -a /pfad/zur/musik fügt das Verzeichnis zur aktuellen Playliste hinzu</li>
   <li>mocp -p spielt die aktuelle Playliste ab</li>
   <li>mocp -f spielt den nächsten Titel ab</li>
   <li>mocp -x beendet den Server</li>
