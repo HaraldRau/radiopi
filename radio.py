@@ -82,7 +82,7 @@ def senderwahl():
 				if GPIO.input(sw) == 0:
 					display.lcd_display_string("Radio neu starten", 2)
 					time.sleep(1)
-					os.system('python /home/hara/radiopi/neustart.py')
+					os.system('python /home/hara/radiopi/neustart.py&')
 
 				#==Anhalten==
 				display.lcd_display_string("Anhalten       ", 1)
