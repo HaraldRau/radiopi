@@ -7,9 +7,9 @@ do
     # Warten auf Verbindung
     sleep 1
 done
-git -C /home/hara/radiopi/ pull https://github.com/HaraldRau/radiopi.git
+sudo mount /dev/sda /home/hara/usb
 sleep 1
-echo "Update erfolgreich!"
+echo "USB eingebunden!"
 sudo /etc/init.d/radiopi start
 sleep 1
 echo "RadioPi gestartet!"
