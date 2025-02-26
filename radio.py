@@ -27,6 +27,7 @@ GPIO.setup(sw, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 time.sleep(1)
 display.lcd_display_string("Radio ON!", 2)
 time.sleep(2)
+os.system('mocp -p')
 
 # Automatische Bereinigung bei Beenden des Programms ==========================
 atexit.register(GPIO.cleanup)
