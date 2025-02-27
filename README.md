@@ -30,11 +30,12 @@ fi
 /usr/local/bin/startscript.sh # WLAN abfragen und starten
 exit 0
 </code></p>
-<h4>Auto-Update</h4>
-<ul>
-  <li><code>git -C /home/hara/radiopi/ pull https://github.com/HaraldRau/radiopi.git</code></li>
-  <li>Zeile in <code>startscript.sh</code> eintragen</li>
-</ul>
+<h4>Update</h4>
+<p><code>git -C /home/hara/radiopi/ pull https://github.com/HaraldRau/radiopi.git</code></p>
+<h4>Nach Update</h4>
+<p><code>sudo cp /home/hara/config /root/.moc/config ></code></p>
+<p><code>sudo cp /home/hara/radiopi/startscript.sh /usr/local/bin/startscript.sh</code></p>
+<p><code>sudo cp /home/hara/radiopi/radiopi /etc/init.d/radiopi</code></p>
 <h4>moc Musik on Console</h4>
 <h5>Befehle</h5>
 <ul>
