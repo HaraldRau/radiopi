@@ -135,21 +135,21 @@ while True:
 				anzeige = sender[0]
 				display.lcd_clear()
 				display.lcd_display_string(anzeige, 2)
+				display.lcd_display_string("Radio ON", 1)
 				activplayer = 1
 			if not(frequenz % 2):
 				activplayer = 0
 	while mode == 1:
-		display.lcd_display_string("USB Playliste", 1)
 		try:
 			os.system('sudo mount /dev/sda /home/hara/usb')
 		finally:
-			display.lcd_display_string("USB verbunden", 2)
+			time.sleep(4)
+			display.lcd_display_string("USB Play", 1)
 		os.system('mocp -P')
 		os.system('mocp -a /home/hara/usb/')
 		os.system('mocp -p')
 		os.system('mocp -v 100')
 		time.sleep(2)
-		display.lcd_clear()
 		mode = 2
 	while mode == 2:
 		time.sleep(10)
