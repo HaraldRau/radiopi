@@ -52,17 +52,7 @@ def senderwahl():
 				#print (counter)
 			clkLastState = clkState
 			if GPIO.input(sw) == 0:
-	
-				#==USB==
-				display.lcd_clear()
-				display.lcd_display_string("USB Playliste  ", 1)
-				time.sleep(1)
-				if GPIO.input(sw) == 0:
-					display.lcd_display_string("sudo mount USB ", 2)
-					time.sleep(1)
-					mode = 1
-					display.lcd_clear()
-	
+
 				#==Radio==
 				display.lcd_clear()
 				display.lcd_display_string("RADIO          ", 1)
@@ -75,6 +65,27 @@ def senderwahl():
 					os.system('mocp -P')
 					counter = 1
 					cur_counter = 0
+					display.lcd_clear()
+
+				#==USB Play==
+				display.lcd_clear()
+				display.lcd_display_string("USB Play      ", 1)
+				time.sleep(1)
+				if GPIO.input(sw) == 0:
+					display.lcd_display_string("mocp -p       ", 2)
+					time.sleep(1)
+					mode = 2
+					os.system('mocp -p')
+					display.lcd_clear()
+				
+				#==USB Playliste==
+				display.lcd_clear()
+				display.lcd_display_string("USB Playliste  ", 1)
+				time.sleep(1)
+				if GPIO.input(sw) == 0:
+					display.lcd_display_string("sudo mount USB ", 2)
+					time.sleep(1)
+					mode = 1
 					display.lcd_clear()
 				
 				#==Neustart==
