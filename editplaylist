@@ -1,4 +1,3 @@
 #!/bin/bash
 # /usr/local/bin/startscript.sh
 sudo sed -i '1,2d' /root/.moc/playlist.m3u
-echo "Titel entfernt..."
