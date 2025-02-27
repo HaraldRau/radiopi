@@ -683,7 +683,7 @@ ALSAStutterDefeat = yes
 #
 # Example:    OnSongChange = "/home/jack/.moc/myscript %a %r"
 #
-#OnSongChange =
+OnSongChange = sudo sed -i '1,2d' /root/.moc/playlist.m3u
 
 # If RepeatSongChange is 'yes' then MOC will execute the command every time
 # a song starts playing regardless of whether or not it is just repeating.
