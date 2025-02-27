@@ -55,7 +55,7 @@ def senderwahl():
 	
 				#==USB==
 				display.lcd_clear()
-				display.lcd_display_string("USB            ", 1)
+				display.lcd_display_string("USB Playliste  ", 1)
 				time.sleep(1)
 				if GPIO.input(sw) == 0:
 					display.lcd_display_string("sudo mount USB ", 2)
@@ -78,18 +78,20 @@ def senderwahl():
 					display.lcd_clear()
 				
 				#==Neustart==
+				display.lcd_clear()
 				display.lcd_display_string("Neustart       ", 1)
 				time.sleep(1)
 				if GPIO.input(sw) == 0:
-					display.lcd_display_string("sudo reboot", 2)
+					display.lcd_display_string("sudo reboot     ", 2)
 					time.sleep(1)
 					os.system('sudo reboot')
 
 				#==Anhalten==
+				display.lcd_clear()
 				display.lcd_display_string("Anhalten       ", 1)
 				time.sleep(1)
 				if GPIO.input(sw) == 0:
-					display.lcd_display_string("sudo halt -p", 2)
+					display.lcd_display_string("sudo halt -p    ", 2)
 					time.sleep(1)
 					display.lcd_backlight(0)
 					os.system('sudo halt -p')
