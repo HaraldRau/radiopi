@@ -58,4 +58,4 @@ OnSongChange = "/root/.moc/editplaylist"
 
 
 # Number items in the playlist.
-PlaylistNumbering = yes
+# PlaylistNumbering = yes
