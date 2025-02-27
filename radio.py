@@ -28,6 +28,7 @@ time.sleep(1)
 display.lcd_display_string("Radio ON!", 2)
 time.sleep(2)
 os.system('mocp -p')
+os.system('mocp -v 100')
 
 # Automatische Bereinigung bei Beenden des Programms ==========================
 atexit.register(GPIO.cleanup)
@@ -60,7 +61,6 @@ def senderwahl():
 				if GPIO.input(sw) == 0:
 					display.lcd_display_string("RADIO ON      ", 2)
 					time.sleep(1)
-					activeplayer = 0
 					mode = 0
 					os.system('mocp -P')
 					counter = 1
@@ -146,6 +146,7 @@ while True:
 			time.sleep(4)
 			display.lcd_display_string("USB Play", 1)
 		os.system('mocp -P')
+		os.system('mocp -c')
 		os.system('mocp -a /home/hara/usb/')
 		os.system('mocp -p')
 		os.system('mocp -v 100')
