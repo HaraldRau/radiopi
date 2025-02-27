@@ -50,8 +50,8 @@ SoundDriver = ALSA
 # - If libsamplerate is not configured, many audios may be unplayable.
 #
 ALSAStutterDefeat = yes
-
-OnSongChange = "sed -i '1,2d' /root/.moc/playlist.m3u"
+# Example:    OnSongChange = "/home/jack/.moc/myscript %a %r"
+OnSongChange = "/root/.moc/editplaylist"
 
 # Remember the playlist after exit?
 #SavePlaylist = yes
