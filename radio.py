@@ -76,6 +76,7 @@ def senderwahl():
 					time.sleep(1)
 					mode = 2
 					os.system('mocp -p')
+					os.system('mocp -v 100')
 					display.lcd_clear()
 				
 				#==USB Playliste==
