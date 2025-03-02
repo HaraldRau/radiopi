@@ -33,6 +33,7 @@ exit 0
 <h4>Update</h4>
 <p><code>git -C /home/hara/radiopi/ pull https://github.com/HaraldRau/radiopi.git</code></p>
 <h4>Nach Update</h4>
+<p>.git/hooks/post-merge</p>
 <p><code>sudo cp /home/hara/config /root/.moc/config</code></p>
 <p><code>sudo cp /home/hara/radiopi/editplaylist /root/.moc/editplaylist</code></p>
 <p><code>sudo chmod +x /root/.moc/playlist</code></p>
