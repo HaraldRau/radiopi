@@ -38,7 +38,6 @@ exit 0
 <p><code>sudo cp /home/hara/radiopi/editplaylist /root/.moc/editplaylist</code></p>
 <p><code>sudo chmod +x /root/.moc/playlist</code></p>
 <p><code>sudo cp /home/hara/radiopi/startscript.sh /usr/local/bin/startscript.sh</code></p>
-<p><code>sudo cp /home/hara/radiopi/radiopi /etc/init.d/radiopi</code></p>
 <h4>moc Musik on Console</h4>
 <h5>Befehle</h5>
 <ul>
