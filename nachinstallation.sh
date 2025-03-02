@@ -1,2 +1,2 @@
 #!/bin/sh
-echo "nachher!"
+echo "Ausführen nach git pull!"
