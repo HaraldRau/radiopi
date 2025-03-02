@@ -1,2 +1,2 @@
-#!/bin/sh
+#!/bin/bash
 echo "Ausführen nach git pull!!!"
