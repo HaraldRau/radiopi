@@ -2,6 +2,6 @@
 # /root/.moc/editplaylist
 sudo mocp -Q%t>/root/.moc/titel
 sudo mocp -Q%a>/root/.moc/artist
-if [ -s /root/.moc/artist ]; then
+if awk '/^ / {exit 0} END {exit 1}' /root/.moc/artist; then
     sudo sed -i '1,2d' /root/.moc/playlist.m3u
 fi
