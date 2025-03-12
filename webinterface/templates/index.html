@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raspberry Pi Steuerung</title>
+    <script>
+        function sendCommand(command) {
+            fetch("/run", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ command: command })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("output").innerText = data.output || data.error;
+            })
+            .catch(error => console.error("Fehler:", error));
+        }
+    </script>
+</head>
+<body>
+    <h1>Steuere den Raspberry Pi</h1>
+    <button onclick="sendCommand('mocp_play')">Musik Abspielen</button>
+    <button onclick="sendCommand('mocp_stop')">Musik Stoppen</button>
+    <button onclick="sendCommand('list_files')">Dateien Anzeigen</button>
+    <button onclick="sendCommand('show_date')">Datum Zeigen</button>
+    <pre id="output"></pre>
+</body>
+</html>
