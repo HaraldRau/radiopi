@@ -54,12 +54,12 @@ def senderwahl():
 			clkLastState = clkState
 			if GPIO.input(sw) == 0:
 
-				#==Radio==
+				#==Radio einschalten==
 				display.lcd_clear()
-				display.lcd_display_string("RADIO          ", 1)
+				display.lcd_display_string("RADIO PI       ", 1)
 				time.sleep(1)
 				if GPIO.input(sw) == 0:
-					display.lcd_display_string("RADIO ON      ", 2)
+					display.lcd_display_string("moc -playit   ", 2)
 					time.sleep(1)
 					mode = 0
 					os.system('mocp -P')
@@ -67,9 +67,9 @@ def senderwahl():
 					cur_counter = 0
 					display.lcd_clear()
 
-				#==USB Play==
+				#==Play lokales Verzeichnis==
 				display.lcd_clear()
-				display.lcd_display_string("USB Play      ", 1)
+				display.lcd_display_string("Lokal Play    ", 1)
 				time.sleep(1)
 				if GPIO.input(sw) == 0:
 					display.lcd_display_string("mocp -p       ", 2)
@@ -79,31 +79,22 @@ def senderwahl():
 					os.system('mocp -v 100')
 					display.lcd_clear()
 				
-				#==USB Playliste==
+				#==Playliste aktualisieren==
 				display.lcd_clear()
-				display.lcd_display_string("USB Playliste  ", 1)
+				display.lcd_display_string("Playliste     ", 1)
 				time.sleep(1)
 				if GPIO.input(sw) == 0:
-					display.lcd_display_string("sudo mount USB ", 2)
+					display.lcd_display_string("mocp -a       ", 2)
 					time.sleep(1)
 					mode = 1
 					display.lcd_clear()
-				
-				#==Neustart==
-				display.lcd_clear()
-				display.lcd_display_string("Neustart       ", 1)
-				time.sleep(1)
-				if GPIO.input(sw) == 0:
-					display.lcd_display_string("sudo reboot     ", 2)
-					time.sleep(1)
-					os.system('sudo reboot')
 
 				#==Anhalten==
 				display.lcd_clear()
 				display.lcd_display_string("Anhalten       ", 1)
 				time.sleep(1)
 				if GPIO.input(sw) == 0:
-					display.lcd_display_string("sudo halt -p    ", 2)
+					display.lcd_display_string("sudo halt -p   ", 2)
 					time.sleep(1)
 					display.lcd_backlight(0)
 					os.system('sudo halt -p')
@@ -145,10 +136,10 @@ while True:
 			os.system('sudo mount /dev/sda /home/hara/usb')
 		finally:
 			time.sleep(4)
-			display.lcd_display_string("USB Play", 1)
+			display.lcd_display_string("Lokal Play", 1)
 		os.system('mocp -P')
 		os.system('mocp -c')
-		os.system('mocp -a /home/hara/usb/')
+		os.system('mocp -a /home/hara/musik/')
 		os.system('mocp -p')
 		os.system('mocp -v 100')
 		time.sleep(2)
