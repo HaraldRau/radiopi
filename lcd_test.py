@@ -15,5 +15,5 @@ try:
     display.lcd_clear() # Clear the display of any data
 except KeyboardInterrupt:
   # exit on KeyboardInterrupt (when you press ctrl+c)
-  print("exit")
+  # print("exit")
   display.lcd_clear()
