@@ -5,8 +5,8 @@ app = Flask(__name__)
 
 # Erlaubte Befehle (Whitelist)
 ALLOWED_COMMANDS = {
-    "mocp_play": "mocp -p",
-    "mocp_stop": "mocp -s",
+    "mocp_play": "sudo mocp -p",
+    "mocp_stop": "sudo mocp -P",
     "list_files": "ls",
     "show_date": "date"
 }
