@@ -7,7 +7,7 @@ app = Flask(__name__)
 ALLOWED_COMMANDS = {
     "mocp_play": "sudo mocp -p",
     "mocp_stop": "sudo mocp -P",
-    "list_files": "ls",
+    "list_files": "ls -a",
     "show_date": "date"
 }
 
