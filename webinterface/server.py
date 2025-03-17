@@ -9,7 +9,9 @@ ALLOWED_COMMANDS = {
     "mocp_stop": "sudo mocp -P",
     "mocp_erase": "sudo mocp -c",
     "mocp_liste": "sudo mocp -a /home/hara/musik/",
-    "mocp_titel": "sudo mocp -i"
+    "mocp_titel": "sudo mocp -Q%t",
+    "mocp_artist": "sudo mocp -Q%a",
+    "mocp_info": "sudo mocp -i",
 }
 
 @app.route("/")
