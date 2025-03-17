@@ -21,8 +21,9 @@
 </head>
 <body>
     <h1>Steuere den Raspberry Pi</h1>
-    <button onclick="sendCommand('mocp_play')"><img src="run/play.png" />PLAY</button>
-    <button onclick="sendCommand('mocp_stop')">>STOP</button>
+    <button onclick="sendCommand('mocp_play')"><h4>PLAY</h4></button>
+    <!-- <button onclick="sendCommand('mocp_play')"><img src="play.png"><h4>PLAY</h4></button>-->
+    <button onclick="sendCommand('mocp_stop')"><h4>STOP</h4></button>
     <button onclick="sendCommand('list_files')">LS -A</button>
     <button onclick="sendCommand('show_date')">DATE</button>
     <pre id="output"></pre>
