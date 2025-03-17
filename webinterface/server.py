@@ -7,8 +7,9 @@ app = Flask(__name__)
 ALLOWED_COMMANDS = {
     "mocp_play": "sudo mocp -p",
     "mocp_stop": "sudo mocp -P",
-    "list_files": "ls -a",
-    "show_date": "date"
+    "mocp_erase": "sudo mocp -c",
+    "mocp_liste": "sudo mocp -a /home/hara/musik/",
+    "mocp_titel": "sudo mocp -i"
 }
 
 @app.route("/")
