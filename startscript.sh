@@ -11,5 +11,5 @@ sleep 1
 echo "USB eingebunden!"
 sudo /etc/init.d/radiopi start
 sleep 1
-python /home/hara/radiopi/webinterface/server.py
+sudo --user=hara python /home/hara/radiopi/webinterface/server.py
 echo "RadioPi gestartet!"
