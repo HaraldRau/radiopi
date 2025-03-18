@@ -12,7 +12,7 @@ ALLOWED_COMMANDS = {
     "mocp_titel": "sudo mocp -Q%t",
     "mocp_artist": "sudo mocp -Q%a",
     "mocp_info": "sudo mocp -i",
-    "mocp_info": "git -C /home/hara/radiopi/ pull https://github.com/HaraldRau/radiopi main"
+    "git_pull": "git -C /home/hara/radiopi/ pull https://github.com/HaraldRau/radiopi main"
 }
 
 @app.route("/")
