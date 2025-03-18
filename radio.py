@@ -132,11 +132,7 @@ while True:
 			if not(frequenz % 2):
 				activplayer = 0
 	while mode == 1:
-		try:
-			os.system('sudo mount /dev/sda /home/hara/usb')
-		finally:
-			time.sleep(4)
-			display.lcd_display_string("Lokal Play", 1)
+		display.lcd_display_string("Lokal Play", 1)
 		os.system('mocp -P')
 		os.system('mocp -c')
 		os.system('mocp -a /home/hara/musik/')
