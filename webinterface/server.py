@@ -22,10 +22,10 @@ def index():
 @app.route("/run", methods=["POST"])
 def run_command():
     data = request.json  # JSON-Daten vom Client
-    command_key = data.get("command")  # Befehl als Schlüssel auslesen
+    command_key = data.get("command")  # Befehl als key auslesen
 
     if command_key not in ALLOWED_COMMANDS:
-        return jsonify({"error": "Ungültiger Befehl!"}), 400
+        return jsonify({"error": "Nicht erlaubter Befehl!"}), 400
 
     try:
         output = subprocess.check_output(ALLOWED_COMMANDS[command_key], shell=True, text=True)
