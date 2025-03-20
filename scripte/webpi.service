@@ -3,7 +3,7 @@ Description=RadioPi Webserver
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/python3 /home/hara/radiopi/webinterface/server.py
+ExecStart=python3 /home/hara/radiopi/webinterface/server.py
 WorkingDirectory=/home/hara/radiopi/webinterface
 Restart=always
 User=hara
