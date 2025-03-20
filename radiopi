@@ -18,21 +18,18 @@ case "$1" in
 		mocp -S
 		sleep 1
         	python /home/hara/radiopi/radio.py
-		python3 /home/hara/radiopi/webinterface/server.py&
         	;;
 	stop)
 		echo "RadioPi wird beendet"
         	# Beende Programm
         	mocp -x
 		pkill -f /home/hara/radiopi/radio.py
-		pkill -f /home/hara/radiopi/webinterface/server.py
         	;;
 	restart)
  		#Aktion wenn restart uebergeben wird
  		echo "RadioPi wird beendet"
         	mocp -x
 		pkill -f /home/hara/radiopi/radio.py
-		pkill -f /home/hara/radiopi/webinterface/server.py
 		echo "RadioPi wird gestartet"
 		mocp -S
 		sleep 1
