@@ -9,8 +9,8 @@ body {
 }
 
 .container {
-    width: 600px; /* Feste Breite */
-    padding: 20px;
+    width: 1000px; /* Feste Breite */
+    padding: 10px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
