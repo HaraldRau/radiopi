@@ -9,5 +9,3 @@ do
 done
 sleep 1
 sudo /etc/init.d/radiopi start
-sleep 1
-echo "RadioPi gestartet!"
