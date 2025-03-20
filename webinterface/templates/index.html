@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raspberry Pi Steuerung</title>
+    <link rel="stylesheet" href="style.css">
     <script>
         function sendCommand(command) {
             fetch("/run", {
@@ -36,6 +37,7 @@
 </style>
 </head>
 <body>
+    <div class="container">
     <h1>Radio Pi</h1>
     <button class="button" onclick="sendCommand('mocp_play')"><h4>PLAY</h4></button>
     <button class="button" onclick="sendCommand('mocp_stop')"><h4>STOP</h4></button>
@@ -46,5 +48,6 @@
     <button class="button" onclick="sendCommand('mocp_artist')"><h4>ARTIST</h4></button>
     <button class="button" onclick="sendCommand('git_pull')"><h4>UPDATE</h4></button>
     <pre id="output"></pre>
+    </div>
 </body>
 </html>
