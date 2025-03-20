@@ -10,5 +10,4 @@ done
 sleep 1
 sudo /etc/init.d/radiopi start
 sleep 1
-sudo --user=hara python /home/hara/radiopi/webinterface/server.py & disown
 echo "RadioPi gestartet!"
