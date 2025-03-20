@@ -18,7 +18,7 @@ case "$1" in
 		mocp -S
 		sleep 1
         	python /home/hara/radiopi/radio.py
-		sudo /usr/bin/python3 /home/hara/radiopi/webinterface/server.py & disown
+		sudo /usr/bin/python3 /home/hara/radiopi/webinterface/server.py&disown
         	;;
 	stop)
 		echo "RadioPi wird beendet"
@@ -37,7 +37,7 @@ case "$1" in
 		mocp -S
 		sleep 1
 		python /home/hara/radiopi/radio.py
-		sudo /usr/bin/python3 /home/hara/radiopi/webinterface/server.py & disown
+		sudo /usr/bin/python3 /home/hara/radiopi/webinterface/server.py&disown
 		;;
 
 	*)
