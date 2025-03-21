@@ -10,7 +10,7 @@ ALLOWED_COMMANDS = {
     "mocp_erase": "sudo mocp -c",
     "mocp_liste": "sudo mocp -a /home/hara/musik/",
     "mocp_titel": "sudo mocp -Q%a&sudo mocp -Q%t",
-    "mocp_next": "sudo mocp -Q%a",
+    "mocp_next": "sudo mocp -n",
     "mocp_info": "sudo mocp -i",
     "halt": "sudo halt -p"
 }
