@@ -9,10 +9,10 @@ ALLOWED_COMMANDS = {
     "mocp_stop": "sudo mocp -P",
     "mocp_erase": "sudo mocp -c",
     "mocp_liste": "sudo mocp -a /home/hara/musik/",
-    "mocp_titel": "sudo mocp -Q%t",
-    "mocp_artist": "sudo mocp -Q%a",
+    "mocp_titel": "sudo mocp -Q%a&sudo mocp -Q%t",
+    "mocp_next": "sudo mocp -Q%a",
     "mocp_info": "sudo mocp -i",
-    "git_pull": "git -C /home/hara/radiopi/ pull https://github.com/HaraldRau/radiopi main"
+    "halt": "sudo halt -p"
 }
 
 @app.route("/")
