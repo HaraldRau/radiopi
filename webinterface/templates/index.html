@@ -14,7 +14,7 @@
             })
             .then(response => response.json())
             .then(data => {
-                document.getElementById("output").innerText = data.output || data.output="Radio Pi";
+                document.getElementById("output").innerText = data.output;
             })
             .catch(error => console.error("Fehler:", error));
         }
