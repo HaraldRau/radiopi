@@ -1,7 +1,7 @@
 <h2>Meilensteine</h2>
 <ul>
-  <li><h4>radiopi als systemd Dinest</li>
-  <li>mocp -S als hara</h4></li>
+  <li><h4>radiopi als systemd Dienst</h4></li>
+  <li><h4>mocp -S als hara</h4></li>
   <li>Verschieben der Scripte nach /scripte/ ERLEDIGT</li>
   <li>Titeldarstellung beim USB Play ERLEDIGT</li>
   <li>Titel und Artist speichern ERLEDIGT</li>
