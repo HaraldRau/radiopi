@@ -5,7 +5,7 @@ import drivers
 import senderliste
 import atexit
 display = drivers.Lcd(0x27)
-display.lcd_display_string("Radio Pi V 0.90", 1)
+display.lcd_display_string("Radio Pi V 1.01", 1)
 from threading import Thread
 
 # Variablen ====================================================================
@@ -15,17 +15,16 @@ sw = 13
 counter = 0
 cur_counter = 0
 activplayer = 0
-mode = 0 # mode 0 -> Internetsender mode 1 -> USB-Stick über Playliste mode 3 -> dnla-Server
+mode = 0
 
 # GPIO einrichten =============================================================
-
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(clk, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(sw, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 time.sleep(1)
-display.lcd_display_string("Radio ON!", 2)
+display.lcd_display_string("Playlist ON!", 2)
 time.sleep(2)
 os.system('mocp -p')
 os.system('mocp -v 100')
@@ -54,44 +53,9 @@ def senderwahl():
 			clkLastState = clkState
 			if GPIO.input(sw) == 0:
 
-				#==Radio einschalten==
-				display.lcd_clear()
-				display.lcd_display_string("RADIO PI       ", 1)
-				time.sleep(1)
-				if GPIO.input(sw) == 0:
-					display.lcd_display_string("moc -playit   ", 2)
-					time.sleep(1)
-					mode = 0
-					os.system('mocp -P')
-					counter = 1
-					cur_counter = 0
-					display.lcd_clear()
-
-				#==Play lokales Verzeichnis==
-				display.lcd_clear()
-				display.lcd_display_string("Lokal Play    ", 1)
-				time.sleep(1)
-				if GPIO.input(sw) == 0:
-					display.lcd_display_string("mocp -p       ", 2)
-					time.sleep(1)
-					mode = 2
-					os.system('mocp -p')
-					os.system('mocp -v 100')
-					display.lcd_clear()
-				
-				#==Playliste aktualisieren==
-				display.lcd_clear()
-				display.lcd_display_string("Playliste     ", 1)
-				time.sleep(1)
-				if GPIO.input(sw) == 0:
-					display.lcd_display_string("mocp -a       ", 2)
-					time.sleep(1)
-					mode = 1
-					display.lcd_clear()
-
 				#==Anhalten==
 				display.lcd_clear()
-				display.lcd_display_string("Anhalten       ", 1)
+				display.lcd_display_string("Herunterfahren ", 1)
 				time.sleep(1)
 				if GPIO.input(sw) == 0:
 					display.lcd_display_string("sudo halt -p   ", 2)
@@ -131,14 +95,3 @@ while True:
 				activplayer = 1
 			if not(frequenz % 2):
 				activplayer = 0
-	while mode == 1:
-		display.lcd_display_string("Lokal Play", 1)
-		os.system('mocp -P')
-		os.system('mocp -c')
-		os.system('mocp -a /home/hara/musik/')
-		os.system('mocp -p')
-		os.system('mocp -v 100')
-		time.sleep(2)
-		mode = 2
-	while mode == 2:
-		time.sleep(10)
