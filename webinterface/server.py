@@ -7,8 +7,8 @@ app = Flask(__name__)
 ALLOWED_COMMANDS = {
     "mocp_play": "sudo mocp -p",
     "mocp_stop": "sudo mocp -P",
-    "mocp_erase": "sudo mocp -c",
-    "mocp_liste": "sudo mocp -a /home/hara/musik/",
+    "mp3_list": "ls /home/hara/musik/",
+    "mocp_liste": "sudo mocp -c&mocp -a /home/hara/musik/",
     "mocp_titel": "sudo mocp -Q%a&sudo mocp -Q%t",
     "mocp_next": "sudo mocp -f",
     "mocp_info": "sudo mocp -i",
