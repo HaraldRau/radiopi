@@ -5,13 +5,13 @@ app = Flask(__name__)
 
 # Erlaubte Befehle (Whitelist)
 ALLOWED_COMMANDS = {
-    "mocp_play": "sudo mocp -p",
-    "mocp_stop": "sudo mocp -P",
+    "mocp_play": "mocp -p",
+    "mocp_stop": "mocp -P",
     "mp3_list": "ls /home/hara/musik/",
-    "mocp_liste": "sudo mocp -c&sudo mocp -a /home/hara/musik/",
-    "mocp_titel": "sudo mocp -Q%a&sudo mocp -Q%t",
-    "mocp_next": "sudo mocp -f",
-    "mocp_info": "sudo mocp -i",
+    "mocp_liste": "mocp -c&sudo mocp -a /home/hara/musik/",
+    "mocp_titel": "mocp -Q%a&sudo mocp -Q%t",
+    "mocp_next": "mocp -f",
+    "mocp_info": "mocp -i",
     "halt": "sudo halt -p"
 }
 
