@@ -8,8 +8,8 @@ ALLOWED_COMMANDS = {
     "mocp_play": "mocp -p",
     "mocp_stop": "mocp -P",
     "mp3_list": "ls /home/hara/musik/",
-    "mocp_liste": "mocp -c&sudo mocp -a /home/hara/musik/",
-    "mocp_titel": "mocp -Q%a&sudo mocp -Q%t",
+    "mocp_liste": "mocp -c&mocp -a /home/hara/musik/",
+    "mocp_titel": "mocp -Q%a&mocp -Q%t",
     "mocp_next": "mocp -f",
     "mocp_info": "mocp -i",
     "halt": "sudo halt -p"
