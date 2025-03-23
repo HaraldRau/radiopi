@@ -8,4 +8,4 @@ do
     sleep 1
 done
 sleep 1
-sudo /etc/init.d/radiopi start
+# sudo /etc/init.d/radiopi start
