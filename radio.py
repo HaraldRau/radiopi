@@ -92,7 +92,7 @@ while True:
 				anzeige = sender[0]
 				display.lcd_clear()
 				display.lcd_display_string(anzeige, 2)
-				display.lcd_display_string("Radio ON", 1)
+				display.lcd_display_string("Radio ON       ", 1)
 				activplayer = 1
 			if not(frequenz % 2):
 				activplayer = 0
