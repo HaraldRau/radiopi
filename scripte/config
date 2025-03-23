@@ -6,7 +6,7 @@
 #
 # Example:    MusicDir = "/home/joe/music"
 #
-MusicDir = /home/hara/usb
+MusicDir = /home/hara/musik
 
 #HTTPProxy =
 
@@ -51,10 +51,10 @@ SoundDriver = ALSA
 #
 ALSAStutterDefeat = yes
 # Example:    OnSongChange = "/home/jack/.moc/myscript %a %r"
-OnSongChange = "/root/.moc/editplaylist"
+OnSongChange = "/home/hara/.moc/editplaylist"
 
 # Remember the playlist after exit?
-#SavePlaylist = yes
+# SavePlaylist = yes
 
 
 # Number items in the playlist.
