@@ -7,4 +7,5 @@ echo "Aktionen nach git pull ausführen!"
 # sudo cp /home/hara/radiopi/scripte/startscript.sh /usr/local/bin/startscript.sh
 # sudo cp /home/hara/radiopi/scripte/webpi.service /etc/systemd/system/webpi.service&systemctl daemon-reload
 # sudo cp /home/hara/radiopi/scripte/radiopi.service /etc/systemd/system/radiopi.service&systemctl daemon-reload
-# sudo /etc/init.d/radiopi restart&
+sudo systemctl restart webpi
+sudo systemctl restart radiopi
