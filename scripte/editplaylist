@@ -1,7 +1,7 @@
 #!/bin/bash
 # /root/.moc/editplaylist
-sudo mocp -Q%t>/root/.moc/titel
-sudo mocp -Q%a>/root/.moc/artist
-if sudo mocp -i | grep -q "/home/hara/musik/"; then
-    sudo sed -i '1,2d' /root/.moc/playlist.m3u
+mocp -Q%t>/home/hara/.moc/titel
+mocp -Q%a>/home/hara/.moc/artist
+if mocp -i | grep -q "/home/hara/musik/"; then
+    sed -i '1,2d' /home/hara/.moc/playlist.m3u
 fi
