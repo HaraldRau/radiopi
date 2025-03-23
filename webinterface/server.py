@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 # Erlaubte Befehle (Whitelist)
 ALLOWED_COMMANDS = {
-    "mocp_play": "mocp -v 100&mocp -p",
+    "mocp_play": "mocp -p",
     "mocp_stop": "mocp -P",
     "mp3_list": "ls /home/hara/musik/",
     "mocp_liste": "mocp -c&mocp -a /home/hara/musik/",
