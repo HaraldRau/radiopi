@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raspberry Pi Steuerung</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Radio Pi</title>
     <script>
         function sendCommand(command) {
             fetch("/run", {
@@ -23,7 +22,6 @@
 body {
     margin: 0;
     padding: 10;
-    /*display: flex;*/
     justify-content: center;
     align-items: center;
     height: 100vh; /* Volle Höhe des Bildschirms */
@@ -31,7 +29,6 @@ body {
 }
 
 .schalter {
-	/*width: 1000px; Feste Breite */
     	margin: 0 auto;
     	padding: 10px;
     	background-color: white;
@@ -41,7 +38,6 @@ body {
 }
 
 .nachricht {
-	/*width: 800px;   Feste Breite */
 	margin: 0 auto;
 	padding: 10px;
 	background-color: lightgray;
@@ -84,7 +80,6 @@ body {
 	    <div class="nachricht">
 		    <h5 id="output"></h5>
 	    </div>
-    </div>
-    
+    </div>  
 </body>
 </html>
