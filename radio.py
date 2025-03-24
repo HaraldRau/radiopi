@@ -7,7 +7,7 @@ import atexit
 display = drivers.Lcd(0x27)
 display.lcd_display_string("Radio Pi V 1.01", 1)
 from threading import Thread
-os.system('alsactl --file ~/.config/asound.state restore')
+#os.system('alsactl --file ~/.config/asound.state restore')
 os.system('mocp -S')
 
 # Variablen ====================================================================
@@ -17,7 +17,7 @@ sw = 13
 counter = 0
 cur_counter = 0
 activplayer = 0
-mode = 0
+# mode = 0
 
 # GPIO einrichten =============================================================
 GPIO.setwarnings(False)
@@ -75,24 +75,21 @@ sendersuche.start()
 
 # Hauptprogramm ===============================================================
 while True:
-	while mode == 0:
-		#print(counter,cur_counter)
-		#print(mode)
-		if counter < 0:
-			counter = 0
-		while cur_counter != counter:
-			cur_counter = counter
-			frequenz = int(counter/2)
-			senderID = int(counter/4)
-			if (frequenz % 2) and activplayer == 0:
-				#print (activplayer)
-				sender = senderliste.sender(senderID)
-				terminal = f"mocp --playit {sender[1]}"
-				os.system(terminal)
-				anzeige = sender[0]
-				display.lcd_clear()
-				display.lcd_display_string(anzeige, 2)
-				display.lcd_display_string("Radio ON       ", 1)
-				activplayer = 1
-			if not(frequenz % 2):
-				activplayer = 0
+	if counter < 0:
+		counter = 0
+	while cur_counter != counter:
+		cur_counter = counter
+		frequenz = int(counter/2)
+		senderID = int(counter/4)
+		if (frequenz % 2) and activplayer == 0:
+			#print (activplayer)
+			sender = senderliste.sender(senderID)
+			terminal = f"mocp --playit {sender[1]}"
+			os.system(terminal)
+			anzeige = sender[0]
+			display.lcd_clear()
+			display.lcd_display_string(anzeige, 2)
+			display.lcd_display_string("Radio ON       ", 1)
+			activplayer = 1
+		if not(frequenz % 2):
+			activplayer = 0
