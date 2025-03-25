@@ -3,8 +3,8 @@ Description=Mocplayer
 After=network.target radiopi.service
 
 [Service]
-ExecStart=python /home/hara/radiopi/radio.py
-WorkingDirectory=/home/hara/radiopi
+ExecStart=mocp -S
+WorkingDirectory=/home/hara
 Restart=always
 User=hara
 
