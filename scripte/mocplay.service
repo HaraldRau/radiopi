@@ -1,6 +1,6 @@
 [Unit]
 Description=Mocplayer
-After=network.target radiopi.service
+After=network.target
 
 [Service]
 ExecStart=mocp -S
