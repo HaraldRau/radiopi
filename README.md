@@ -10,15 +10,15 @@
 <h4>Update</h4>
 <p><code>git -C /home/hara/radiopi/ pull https://github.com/HaraldRau/radiopi.git</code></p>
 <h4>Nach Update</h4>
-<p>.git/hooks/post-merge</p>
+<p><code> nano .git/hooks/post-merge</code></p>
 <p><code>sudo cp /home/hara/radiopi/config /home/hara/.moc/config</code></p>
 <p><code>sudo cp /home/hara/radiopi/editplaylist /home/hara/.moc/editplaylist</code></p>
 <p><code>sudo chmod +x /home/hara/.moc/editplaylist</code></p>
 <h4>Dienste installieren</h4>
-<p>sudo cp /home/hara/radiopi/scripte/radiopi.service /etc/systemd/system/radiopi.service</p>
-<p>systemctl --user daemon-reload</p>
-<p>systemctl --user enable radiopi</p>
-<p>systemctl --user start radiopi</p>
+<p><code>sudo cp /home/hara/radiopi/scripte/radiopi.service /etc/systemd/system/radiopi.service</code></p>
+<p><code>sudo systemctl daemon-reload</code></p>
+<p><code>sudo systemctl enable radiopi</code></p>
+<p><code>sudo systemctl start radiopi</code></p>
 <h4>moc Musik on Console</h4>
 <h5>Befehle</h5>
 <ul>
