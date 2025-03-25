@@ -15,9 +15,10 @@
 <p><code>sudo cp /home/hara/radiopi/editplaylist /home/hara/.moc/editplaylist</code></p>
 <p><code>sudo chmod +x /home/hara/.moc/editplaylist</code></p>
 <h4>Dienste installieren</h4>
+<p>sudo cp /home/hara/radiopi/scripte/radiopi.service /etc/systemd/system/radiopi.service</p>
 <p>systemctl --user daemon-reload</p>
-<p>systemctl --user enable mocp</p>
-<p>systemctl --user start mocp</p>
+<p>systemctl --user enable radiopi</p>
+<p>systemctl --user start radiopi</p>
 <h4>moc Musik on Console</h4>
 <h5>Befehle</h5>
 <ul>
