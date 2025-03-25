@@ -1,12 +1,14 @@
 [Unit]
-Description=Mocplayer
-After=network.target sound.target alsa-restore.service
-Requires=sound.target
+Description=MOC Player
+After=network.target sound.target
 
 [Service]
-ExecStart=/usr/bin/mocp -S
-Restart=always
+Type=forking
 User=hara
+ExecStart=/usr/bin/mocp -S
+ExecStop=/usr/bin/mocp -x
+Restart=no
+WorkingDirectory=/home/hara
 
 [Install]
 WantedBy=multi-user.target
