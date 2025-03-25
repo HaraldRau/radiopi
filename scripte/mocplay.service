@@ -1,6 +1,6 @@
 [Unit]
 Description=Mocplayer
-After=network.target
+After=network.target sound.target alsa-restore.service
 
 [Service]
 ExecStart=mocp -S
