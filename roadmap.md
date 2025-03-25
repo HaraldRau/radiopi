@@ -7,8 +7,8 @@
 <ul>
     <li>radiopi als systemd Dienst</li>
   <li>mocp -S als hara</li>
-  <li><h4>radiopi als systemd Dienst</h4></li>
-  <li><h4>mocp -S als hara</h4></li>
+  <li>radiopi als systemd Dienst</li>
+  <li>mocp -S als hara</li>
   <li>Verschieben der Scripte nach /scripte/</li>
   <li>Titeldarstellung beim USB Play</li>
   <li>Titel und Artist speichern</li>
