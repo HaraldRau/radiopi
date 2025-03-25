@@ -1,0 +1,12 @@
+[Unit]
+Description=Mocplayer
+After=network.target radiopi.service
+
+[Service]
+ExecStart=python /home/hara/radiopi/radio.py
+WorkingDirectory=/home/hara/radiopi
+Restart=always
+User=hara
+
+[Install]
+WantedBy=multi-user.target
