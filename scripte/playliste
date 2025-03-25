@@ -1,0 +1,6 @@
+
+mocp -c
+sleep 2
+mocp -a /home/hara/musik/
+sleep 2
+cat /home/hara/.moc/playlist.m3u|grep mp3
