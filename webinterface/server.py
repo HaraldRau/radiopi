@@ -8,7 +8,7 @@ ALLOWED_COMMANDS = {
     "mocp_play": "mocp -p",
     "mocp_stop": "mocp -P",
     "mp3_list": "ls /home/hara/musik/",
-    "mocp_liste": "mocp -c&mocp -a /home/hara/musik/",
+    "mocp_liste": "bash /home/hara/radiopi/scripte/playliste",
     "mocp_titel": "mocp -Q%a&mocp -Q%t",
     "mocp_next": "mocp -f",
     "mocp_info": "mocp -i",
