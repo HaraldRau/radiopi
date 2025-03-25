@@ -1,6 +1,7 @@
 [Unit]
-Description=RadioPi Webserver
-After=network.target
+Description=RadioPi
+After=network.target sound.target alsa-restore.service
+Requires=sound.target
 
 [Service]
 ExecStart=python /home/hara/radiopi/radio.py
