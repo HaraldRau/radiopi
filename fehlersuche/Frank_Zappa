@@ -1,4 +1,5 @@
-Wenn du nochmal Probleme siehst beim Start (besonders nach Kaltstarts), kannst du auch zusätzlich im Python-Code ganz am Anfang eine kurze Verzögerung oder Abfrage auf aplay -l machen, wie oben gezeigt. Aber wenn’s jetzt stabil läuft, brauchst du das vermutlich gar nicht.
+Wenn du nochmal Probleme siehst beim Start (besonders nach Kaltstarts), kannst du auch zusätzlich im Python-Code ganz am Anfang eine kurze Verzögerung oder Abfrage auf aplay -l machen, wie oben gezeigt.
+Aber wenn’s jetzt stabil läuft, brauchst du das vermutlich gar nicht.
 
 Läuft dein RadioPi inzwischen wie gewünscht? 😊
 Du:
