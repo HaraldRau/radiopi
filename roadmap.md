@@ -5,8 +5,6 @@
 </ul>
 <h3>BEENDET</h3>
 <ul>
-    <li>radiopi als systemd Dienst</li>
-  <li>mocp -S als hara</li>
   <li>radiopi als systemd Dienst</li>
   <li>mocp -S als hara</li>
   <li>Verschieben der Scripte nach /scripte/</li>
