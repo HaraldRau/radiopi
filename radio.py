@@ -7,7 +7,7 @@ import atexit
 display = drivers.Lcd(0x27)
 display.lcd_display_string("Radio Pi V 1.01", 1)
 from threading import Thread
-os.system('mocp -S') # in externen Dinest verschieben
+# os.system('mocp -S') # in externen Dinest verschieben
 
 # Variablen ====================================================================
 clk = 5
