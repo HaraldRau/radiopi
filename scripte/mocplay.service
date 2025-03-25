@@ -4,8 +4,7 @@ After=network.target sound.target alsa-restore.service
 Requires=sound.target
 
 [Service]
-ExecStart=mocp -S
-WorkingDirectory=/home/hara
+ExecStart=/usr/bin/mocp -S
 Restart=always
 User=hara
 
