@@ -7,8 +7,7 @@ import atexit
 display = drivers.Lcd(0x27)
 display.lcd_display_string("Radio Pi V 1.01", 1)
 from threading import Thread
-#os.system('alsactl --file ~/.config/asound.state restore')
-os.system('mocp -S')
+os.system('mocp -S') # in externen Dinest verschieben
 
 # Variablen ====================================================================
 clk = 5
@@ -17,7 +16,6 @@ sw = 13
 counter = 0
 cur_counter = 0
 activplayer = 0
-# mode = 0
 
 # GPIO einrichten =============================================================
 GPIO.setwarnings(False)
@@ -73,7 +71,7 @@ def senderwahl():
 sendersuche = Thread(target=senderwahl)
 sendersuche.start()
 
-# Hauptprogramm ===============================================================
+# Hauptprogramm ================================================================
 while True:
 	if counter < 0:
 		counter = 0
