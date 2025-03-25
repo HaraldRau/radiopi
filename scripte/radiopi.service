@@ -1,6 +1,6 @@
 [Unit]
 Description=RadioPi
-After=network.target sound.target alsa-restore.service
+After=network.target sound.target alsa-restore.service mocplay.service
 Requires=sound.target
 
 [Service]
