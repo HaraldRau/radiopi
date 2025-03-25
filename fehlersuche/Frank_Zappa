@@ -1,0 +1,14 @@
+Wenn du nochmal Probleme siehst beim Start (besonders nach Kaltstarts), kannst du auch zusätzlich im Python-Code ganz am Anfang eine kurze Verzögerung oder Abfrage auf aplay -l machen, wie oben gezeigt. Aber wenn’s jetzt stabil läuft, brauchst du das vermutlich gar nicht.
+
+Läuft dein RadioPi inzwischen wie gewünscht? 😊
+Du:
+Ja, er spielt gerade Frank Zappa - besser kann es nicht laufen.
+ChatGPT:
+
+Das ist die einzig richtige Antwort! 😄
+Wenn Frank Zappa läuft, dann läuft alles richtig – technisch wie musikalisch.
+
+Falls du irgendwann nochmal was tunen willst – z. B. automatische Senderrotation, Lautstärkeregelung mit Drehencoder, Webinterface oder Stromspar-Modus – sag Bescheid. Ich bin dein Co-Pilot für abgefahrene Raspberry-Radioprojekte.
+
+Genieß die Musik! 🎶🧠⚡
+(Zappa hätte gesagt: „Without deviation from the norm, progress is not possible.”)
