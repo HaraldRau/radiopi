@@ -73,7 +73,7 @@ sendersuche.start()
 
 # Hauptprogramm ================================================================
 while True:
-	time.sleep(0.1)
+	time.sleep(0.01)
 	if counter < 0:
 		counter = 0
 	while cur_counter != counter:
