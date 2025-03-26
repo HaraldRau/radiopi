@@ -8,8 +8,8 @@ Wenn du die Ausgabe eines Befehls in eine **Variable** schreiben möchtest, benu
 ```python
 import subprocess
 
-liste = subprocess.check_output(['ls', '-l', '/home/hara']).decode('utf-8')
-print(liste)
+liste = subprocess.check_output(['mocp' ,'-i']).decode('utf-8')
+print(liste[18:25])
 ```
 
 ### Erklärung:
@@ -18,7 +18,7 @@ print(liste)
 
 ### Optional: Wenn du die Ausgabe zeilenweise willst
 ```python
-liste = subprocess.check_output(['ls', '-l', '/home/hara']).decode('utf-8').splitlines()
+liste = subprocess.check_output(['mocp' ,'-i']).decode('utf-8').splitlines()
 for zeile in liste:
     print(zeile)
 ```
