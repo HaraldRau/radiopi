@@ -19,8 +19,7 @@ print(liste[18:25])
 ### Optional: Wenn du die Ausgabe zeilenweise willst
 ```python
 liste = subprocess.check_output(['mocp' ,'-i']).decode('utf-8').splitlines()
-for zeile in liste:
-    print(zeile)
+print(zeile[1])
 ```
 
 Willst du eine Alternative mit `os.popen()` sehen? Die geht auch, ist aber veraltet.
