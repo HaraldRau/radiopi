@@ -7,7 +7,6 @@ import atexit
 display = drivers.Lcd(0x27)
 display.lcd_display_string("Radio Pi V 1.01", 1)
 from threading import Thread
-# os.system('mocp -S') # in externen Dinest verschieben
 
 # Variablen ====================================================================
 clk = 5
@@ -35,10 +34,7 @@ atexit.register(GPIO.cleanup)
 # Funktion für Tread Abfrage des Senderwählers K ==============================
 def senderwahl():
 	global counter
-	global mode
-	global activeplayer
 	counter = 0
-	mode = 0
 	clkLastState = GPIO.input(clk)
 	try:
 		while True:
@@ -81,7 +77,6 @@ while True:
 		frequenz = int(counter/2)
 		senderID = int(counter/4)
 		if (frequenz % 2) and activplayer == 0:
-			#print (activplayer)
 			sender = senderliste.sender(senderID)
 			terminal = f"mocp --playit {sender[1]}"
 			os.system(terminal)
