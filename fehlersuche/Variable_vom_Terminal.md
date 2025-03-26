@@ -20,6 +20,7 @@ print(liste[18:25])
 ```python
 liste = subprocess.check_output(['mocp' ,'-i']).decode('utf-8').splitlines()
 print(zeile[1])
+print(liste[4][11:])
 ```
 
 Willst du eine Alternative mit `os.popen()` sehen? Die geht auch, ist aber veraltet.
