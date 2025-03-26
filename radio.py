@@ -42,7 +42,6 @@ def senderwahl():
 	clkLastState = GPIO.input(clk)
 	try:
 		while True:
-			#time.sleep(0.1)
 			clkState = GPIO.input(clk)
 			dtState = GPIO.input(dt)
 			if clkState != clkLastState:
@@ -50,7 +49,6 @@ def senderwahl():
 					counter += 1
 				else:
 					counter -= 1
-				#print (counter)
 			clkLastState = clkState
 			if GPIO.input(sw) == 0:
 
