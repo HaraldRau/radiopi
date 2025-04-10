@@ -54,11 +54,13 @@ def senderwahl():
 				display.lcd_display_string("Herunterfahren ", 1)
 				time.sleep(1)
 				if GPIO.input(sw) == 0:
-					display.lcd_display_string("sudo halt -p   ", 2)
-					time.sleep(1)
 					display.lcd_backlight(0)
 					os.system('sudo halt -p')
 				display.lcd_clear()
+				display.lcd_display_string("Playlist ON!", 2)
+				os.system('mocp -p')
+				os.system('mocp -v 100')
+				
 				
 	finally:
 		GPIO.cleanup()
