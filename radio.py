@@ -4,6 +4,7 @@ import os
 import drivers
 import senderliste
 import atexit
+import subprocess
 display = drivers.Lcd(0x27)
 display.lcd_display_string("Radio Pi V 1.01", 1)
 from threading import Thread
@@ -57,9 +58,15 @@ def senderwahl():
 					display.lcd_backlight(0)
 					os.system('sudo halt -p')
 				display.lcd_clear()
-				display.lcd_display_string("Playlist ON!", 2)
-				os.system('mocp -p')
-				os.system('mocp -v 100')
+				status = subprocess.check_output(['mocp' ,'-i']).decode('utf-8').splitlines()
+				if status[0] == "State: STOP":
+					os.system('mocp -p')
+					os.system('mocp -v 100')
+					display.lcd_display_string("Playlist ON!", 2)
+				else:
+					os.system('mocp -s')
+					display.lcd_display_string("Pause        ", 2)
+				
 				
 				
 	finally:
