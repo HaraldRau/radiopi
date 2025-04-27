@@ -52,9 +52,11 @@ def senderwahl():
 
 				#==Anhalten==
 				display.lcd_clear()
-				display.lcd_display_string("Herunterfahren ", 1)
+				display.lcd_display_string("Bitte warten... ", 1)
 				time.sleep(1)
 				if GPIO.input(sw) == 0:
+					display.lcd_display_string("Herunterfahren  ", 1)
+					time.sleep(1)
 					display.lcd_backlight(0)
 					os.system('sudo halt -p')
 				display.lcd_clear()
@@ -62,10 +64,10 @@ def senderwahl():
 				if status[0] == "State: STOP":
 					os.system('mocp -p')
 					os.system('mocp -v 100')
-					display.lcd_display_string("Playlist ON!", 2)
+					display.lcd_display_string("Playlist ON!   ", 2)
 				else:
 					os.system('mocp -s')
-					display.lcd_display_string("Pause        ", 2)
+					display.lcd_display_string("Pause           ", 2)
 				
 				
 				
@@ -91,8 +93,8 @@ while True:
 			os.system(terminal)
 			anzeige = sender[0]
 			display.lcd_clear()
-			display.lcd_display_string(anzeige, 2)
-			display.lcd_display_string("Radio ON       ", 1)
+			display.lcd_display_string(anzeige, 1)
+			display.lcd_display_string("Radio ON!       ", 2)
 			activplayer = 1
 		if not(frequenz % 2):
 			activplayer = 0
