@@ -1,4 +1,5 @@
 #!/bin/bash
 if mocp -i | grep -q "STOP"
-  then echo "test"
+  then mocp -U
+  else mocp -P
 fi
