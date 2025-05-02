@@ -1,2 +1,3 @@
-if mocp -i | grep "STOP";
-then echo "test"
+#!/bin/bash
+if [mocp -i | grep "STOP"]
+  then echo "test"
