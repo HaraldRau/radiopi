@@ -1,4 +1,4 @@
 #!/bin/bash
-if mocp -i | grep "STOP"
+if mocp -i | grep -q "STOP"
   then echo "test"
 fi
