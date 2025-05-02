@@ -1,5 +1,5 @@
 #!/bin/bash
-if mocp -i | grep -q "STOP"
+if mocp -i | grep -q "PAUSE"
   then mocp -U
   else mocp -P
 fi
