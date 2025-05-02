@@ -1,1 +1,2 @@
-
+if mocp -i | grep "STOP";
+then echo "test"
