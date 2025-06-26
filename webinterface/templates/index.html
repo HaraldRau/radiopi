@@ -48,7 +48,7 @@ body {
 	/* Optional für Scrollen bei zu langem Text */
 	overflow: hidden;
 	border-radius: 10px;
-
+}
 
 .button {
   background-color: #4c4c4c;
@@ -62,29 +62,33 @@ body {
   font-size: 16px;
   margin: 2px;
   cursor: pointer;
-  width: 150px;
+  width: 100px;
 }
 </style>
 </head>
 <body>
     <div class="schalter">
-	    <h1>Radio Pi</h1>
-		<button class="button" onclick="sendCommand('mocp_play')">[>]</button>
-		<button class="button" onclick="sendCommand('mocp_pause')">[||]</button>  
-		<button class="button" onclick="sendCommand('mocp_next')">[->]</button>
-		<button class="button" onclick="sendCommand('mocp_pre')">[<-]</button>
-		<button class="button" onclick="sendCommand('mocp_for')">[>>]</button>
-		<button class="button" onclick="sendCommand('mocp_back')">[<<]</button>
-	    <button class="button" onclick="sendCommand('mocp_titel')">TITEL</button>
-	    <button class="button" onclick="sendCommand('mp3_list')">LISTE</button>
-	    <button class="button" onclick="sendCommand('mocp_liste')">NEU</button>
-	    <button class="button" onclick="sendCommand('mocp_info')">INFO</button>
-		<button class="button" onclick="sendCommand('htop')">HTOP</button>
-		<button class="button" onclick="sendCommand('halt')">HALT</button>
-		<button class="button" onclick="sendCommand('htop')">HTOP</button>
-	    <div class="nachricht">
-		    <h5 id="output"></h5>
-	    </div>
+	<h1>Radio Pi</h1>
+	<p>
+	<button class="button" onclick="sendCommand('mocp_play')"><h3>[>]</h3></button>
+	<button class="button" onclick="sendCommand('mocp_pause')"><h3>[||]</h3></button>  
+	<button class="button" onclick="sendCommand('mocp_next')"><h3>[->]</h3></button>
+	<button class="button" onclick="sendCommand('mocp_pre')"><h3>[<-]</h3></button>
+	<button class="button" onclick="sendCommand('mocp_for')"><h3>[>>]</h3></button>
+	<button class="button" onclick="sendCommand('mocp_back')"><h3>[<<]</h3></button>
+	</p>
+	<p>
+	<button class="button" onclick="sendCommand('mocp_titel')"><h3>TITEL</h3></button>
+	<button class="button" onclick="sendCommand('mp3_list')"><h3>LISTE</h3></button>
+	<button class="button" onclick="sendCommand('mocp_liste')"><h3>NEU</h3></button>
+	<button class="button" onclick="sendCommand('mocp_info')"><h3>INFO</h3></button>
+	<button class="button" onclick="sendCommand('htop')"><h3>HTOP</h3></button>
+	<button class="button" onclick="sendCommand('halt')"><h3>HALT</h3></button>
+	<button class="button" onclick="sendCommand('htop')"><h3>HTOP</h3></button>
+	</p>
+	<div class="nachricht">
+	<h5 id="output"></h5>
+	</div>
     </div>  
 </body>
 </html>
