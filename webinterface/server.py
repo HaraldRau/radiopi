@@ -12,6 +12,8 @@ ALLOWED_COMMANDS = {
     "mocp_titel": "mocp -Q%a&mocp -Q%t",
     "mocp_next": "mocp -f",
     "mocp_info": "mocp -i",
+    "mocp_for": "mocp --seek=10",
+    "mocp_back": "mocp --seek=-10",
     "halt": "sudo halt -p"
 }
 
