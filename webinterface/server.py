@@ -11,6 +11,7 @@ ALLOWED_COMMANDS = {
     "mocp_liste": "bash /home/hara/radiopi/scripte/playliste",
     "mocp_titel": "mocp -Q%a&mocp -Q%t",
     "mocp_next": "mocp -f",
+    "mocp_pre": "mocp -r",
     "mocp_info": "mocp -i",
     "mocp_for": "mocp --seek=10",
     "mocp_back": "mocp --seek=-10",
