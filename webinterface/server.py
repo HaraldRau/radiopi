@@ -16,6 +16,7 @@ ALLOWED_COMMANDS = {
     "mocp_for": "mocp --seek=10",
     "mocp_back": "mocp --seek=-10",
     "halt": "sudo halt -p"
+    "htop": "htop"
 }
 
 @app.route("/")
