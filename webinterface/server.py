@@ -7,7 +7,7 @@ app = Flask(__name__)
 ALLOWED_COMMANDS = {
     "mocp_play": "mocp -p",
     "mocp_pause": "mocp -G",
-    "mp3_list": "cat /home/hara/.moc/playlist.m3u|grep /home/",
+    "mp3_list": "cat /home/hara/.moc/playlist.m3u | grep /home/ | sed 's|.*/||'",
     "mocp_liste": "bash /home/hara/radiopi/scripte/playliste",
     "mocp_titel": "mocp -Q%a&mocp -Q%t",
     "mocp_next": "mocp -f",
