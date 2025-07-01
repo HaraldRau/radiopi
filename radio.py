@@ -4,7 +4,6 @@ import os
 import drivers
 import senderliste
 import atexit
-import subprocess
 display = drivers.Lcd(0x27)
 display.lcd_display_string("Radio Pi V 1.01", 1)
 from threading import Thread
