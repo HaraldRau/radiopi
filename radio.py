@@ -51,9 +51,8 @@ def senderwahl():
 			if GPIO.input(sw) == 0:
 				#==PAUSE==
 				os.system('mocp -G')
-				#==Anhalten==
 				
-				display.lcd_display_string("Bitte warten... ", 1)
+				#==Anhalten==
 				time.sleep(1)
 				if GPIO.input(sw) == 0:
 					display.lcd_clear()					
@@ -61,16 +60,6 @@ def senderwahl():
 					time.sleep(1)
 					display.lcd_backlight(0)
 					os.system('sudo halt -p')
-				#display.lcd_clear()
-				#status = subprocess.check_output(['mocp' ,'-i']).decode('utf-8').splitlines()
-				#if status[0] == "State: STOP":
-				#	os.system('mocp -p')
-				#	os.system('mocp -v 100')
-				#	display.lcd_display_string("Playlist ON!   ", 2)
-				#else:
-				#	os.system('mocp -s')
-				#	display.lcd_display_string("Pause           ", 2)
-				
 				
 				
 	finally:
