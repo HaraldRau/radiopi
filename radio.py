@@ -53,6 +53,7 @@ def senderwahl():
 				time.sleep(1)
 				#==PLAYLISTE==
 				if GPIO.input(sw) == 0:
+					display.lcd_clear()
 					display.lcd_display_string("Playlist ON!    ", 2)
 					time.sleep(1)
 					if GPIO.input(sw) == 1:
