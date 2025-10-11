@@ -2,11 +2,6 @@
 
 <img src="bilder/RadioPiKY040_Steckplatine.png" width="400">
 
-<h4>Installation</h4>
-<ul>
-<li>sudo systemctl start radiopi</li>
-<li>sudo systemctl start radiopi</li>  
-</ul>
 <h4>Update</h4>
 <p><code>git -C /home/hara/radiopi/ pull https://github.com/HaraldRau/radiopi.git</code></p>
 <h4>Nach Update</h4>
