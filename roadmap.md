@@ -1,6 +1,8 @@
 <h2>Meilensteine</h2>
 <h3>OFFEN</h3>
 <ul>
+  <li>Weboberfläche entwickeln</li>
+  <li>Ordner mit Musik über die Weboberfläche einlesen</li>
   <li>mocp -S als systemd Dienst</li>
 </ul>
 <h3>BEENDET</h3>
