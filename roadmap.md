@@ -3,10 +3,10 @@
 <ul>
   <li>Weboberfläche entwickeln</li>
   <li>Ordner mit Musik über die Weboberfläche einlesen</li>
-  <li>mocp -S als systemd Dienst</li>
 </ul>
 <h3>BEENDET</h3>
 <ul>
+  <li>mocp -S als systemd Dienst</li>
   <li>radiopi als systemd Dienst</li>
   <li>mocp -S als hara</li>
   <li>Verschieben der Scripte nach /scripte/</li>
