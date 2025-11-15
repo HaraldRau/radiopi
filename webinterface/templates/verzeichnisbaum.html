@@ -12,22 +12,25 @@
     height: 100vh; /* Volle Höhe des Bildschirms */
     background-color: #f4f4f4;
         }
+		.link {
+			pointer-events: none;
+		}
         .nav {
             margin-bottom: 15px;
         }
 		.button {
-  background-color: #4c4c4c;
-  border: none;
-  color: white;
-  border-radius: 5px;
-  padding: 5px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 2px;
-  cursor: pointer;
-  width: 100px;
+			background-color: #4c4c4c;
+			border: none;
+			color: white;
+			border-radius: 5px;
+			padding: 5px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 2px;
+			cursor: pointer;
+			width: 100px;
 		}
 		
         pre {
@@ -40,24 +43,24 @@
             white-space: pre-wrap;
         }
 		.schalter {
-    	margin: 0 auto;
-    	padding: 10px;
-    	background-color: white;
-    	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-		text-align: center;
-		border-radius: 10px;
+			margin: 0 auto;
+			padding: 10px;
+			background-color: white;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			text-align: center;
+			border-radius: 10px;
 		}
 		.nachricht {
-		margin: 0 auto;
-		padding: 10px;
-		background-color: lightgray;
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-		/* Zeilenumbruch aktivieren */
-		word-wrap: break-word;
-		overflow-wrap: break-word;
-		/* Optional für Scrollen bei zu langem Text */
-		overflow: hidden;
-		border-radius: 10px;
+			margin: 0 auto;
+			padding: 10px;
+			background-color: lightgray;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			/* Zeilenumbruch aktivieren */
+			word-wrap: break-word;
+			overflow-wrap: break-word;
+			/* Optional für Scrollen bei zu langem Text */
+			overflow: hidden;
+			border-radius: 10px;
 		}
 		
     </style>
@@ -157,7 +160,7 @@ window.addEventListener("load", () => setEventListener());
 </head>
 <body>
 	<div class="schalter">
-    <a href="/"><button class=button"><h3>PLAYER</h3></button></a>
+    <a href="/" class="link"><button class=button"><h3>PLAYER</h3></button></a>
     <p><span id="current"></span></p>
 
     <div id="folders"><h3></h3></div>
