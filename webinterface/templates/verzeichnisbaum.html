@@ -5,29 +5,31 @@
     <title>Radio Pi – Verzeichnis-Browser</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background: #f4f4f4;
-        }
-        h1 {
-            margin-bottom: 10px;
+	margin: 0;
+    padding: 10;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Volle Höhe des Bildschirms */
+    background-color: #f4f4f4;
         }
         .nav {
             margin-bottom: 15px;
         }
-        button {
-             background-color: #4c4c4c;
-             border: none;
-             color: white;
-             border-radius: 5px;
-             padding: 5px;
-             text-align: center;
-             text-decoration: none;
-             display: inline-block;
-             font-size: 16px;
-             margin: 2px;
-             cursor: pointer;
-        }
+		.button {
+  background-color: #4c4c4c;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px;
+  cursor: pointer;
+  width: 100px;
+		}
+		
         pre {
             background: #eee;
             padding: 10px;
@@ -37,6 +39,27 @@
             margin-top: 15px;
             white-space: pre-wrap;
         }
+		.schalter {
+    	margin: 0 auto;
+    	padding: 10px;
+    	background-color: white;
+    	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		text-align: center;
+		border-radius: 10px;
+		}
+		.nachricht {
+		margin: 0 auto;
+		padding: 10px;
+		background-color: lightgray;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		/* Zeilenumbruch aktivieren */
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+		/* Optional für Scrollen bei zu langem Text */
+		overflow: hidden;
+		border-radius: 10px;
+		}
+		
     </style>
     <script>
         let currentPath = "";
@@ -133,14 +156,16 @@ window.addEventListener("load", () => setEventListener());
     </script>
 </head>
 <body>
-    <a href="/"><button><h3>PLAYER</h3></button></a>
+	<div class="schalter">
+    <a href="/"><button class=button"><h3>PLAYER</h3></button></a>
     <p><span id="current"></span></p>
 
     <div id="folders"><h3></h3></div>
     <div id="files"><h5></h5></div>
-
-	<button id="play"><h3>LOAD</h3></button>
-
-    <button id="output"></button>
+	<button class="button" id="play"><h3>LOAD</h3></button>
+	</div>
+	<div class="nachricht">
+    <h5 id="output"></h5>
+	</div>
 </body>
 </html>
