@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Pi</title>
+    <script>
+        function sendCommand(command) {
+            fetch("/run", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ command: command })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("output").innerText = data.output;
+            })
+            .catch(error => console.error("Fehler:", error));
+        }
+    </script>
+    <style>
+body {
+    margin: 0;
+    padding: 10;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Volle Höhe des Bildschirms */
+    background-color: #f4f4f4;
+}
+
+.schalter {
+    	margin: 0 auto;
+    	padding: 10px;
+    	background-color: white;
+    	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	text-align: center;
+	border-radius: 10px;
+}
+
+.nachricht {
+	margin: 0 auto;
+	padding: 10px;
+	background-color: lightgray;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	/* Zeilenumbruch aktivieren */
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	/* Optional für Scrollen bei zu langem Text */
+	overflow: hidden;
+	border-radius: 10px;
+}
+
+.button {
+  background-color: #4c4c4c;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px;
+  cursor: pointer;
+  width: 100px;
+}
+</style>
+</head>
+<body>
+    <div class="schalter">
+	<h1>Radio Pi</h1>
+	<p>
+	<button class="button" onclick="sendCommand('mocp_play')"><h3>[>]</h3></button>
+	<button class="button" onclick="sendCommand('mocp_pause')"><h3>[||]</h3></button>  
+	<button class="button" onclick="sendCommand('mocp_next')"><h3>[->]</h3></button>
+	<button class="button" onclick="sendCommand('mocp_pre')"><h3>[<-]</h3></button>
+	<button class="button" onclick="sendCommand('mocp_for')"><h3>[>>]</h3></button>
+	<button class="button" onclick="sendCommand('mocp_back')"><h3>[<<]</h3></button>
+	</p>
+	<p>
+	<button class="button" onclick="sendCommand('mocp_titel')"><h3>TITEL</h3></button>
+	<button class="button" onclick="sendCommand('mp3_list')"><h3>LISTE</h3></button>
+	<button class="button" onclick="sendCommand(window.location.href='/explorer')"><h3>NEU</h3></button>
+	<button class="button" onclick="sendCommand('mocp_info')"><h3>INFO</h3></button>
+	<button class="button" onclick="sendCommand('status')"><h3>STATUS</h3></button>
+	<button class="button" onclick="sendCommand('halt')"><h3>HALT</h3></button>
+	</p>
+	<div class="nachricht">
+	<h5 id="output"></h5>
+	</div>
+    </div>  
+</body>
+</html>
