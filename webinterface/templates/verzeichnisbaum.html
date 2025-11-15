@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Radio Pi – Verzeichnis-Browser</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f4f4f4;
+        }
+        h1 {
+            margin-bottom: 10px;
+        }
+        .nav {
+            margin-bottom: 15px;
+        }
+        button {
+             background-color: #4c4c4c;
+             border: none;
+             color: white;
+             border-radius: 5px;
+             padding: 5px;
+             text-align: center;
+             text-decoration: none;
+             display: inline-block;
+             font-size: 16px;
+             margin: 2px;
+             cursor: pointer;
+        }
+        pre {
+            background: #eee;
+            padding: 10px;
+            border-radius: 6px;
+        }
+        #files {
+            margin-top: 15px;
+            white-space: pre-wrap;
+        }
+    </style>
+    <script>
+        let currentPath = "";
+
+        async function loadFolders(path = "") {
+            const safePath = (path === undefined || path === null || path === "undefined") ? "" : path;
+
+            try {
+                const resp = await fetch("/list-folders?path=" + encodeURIComponent(safePath));
+                const data = await resp.json();
+
+                if (data.error) {
+                    document.getElementById("current").innerText = "Fehler: " + data.error;
+                    document.getElementById("folders").innerHTML = "";
+                    document.getElementById("files").innerHTML = "";
+                    document.getElementById("output").innerText = "";
+                    return;
+                }
+
+                currentPath = (data.path === "." || data.path === "/" || !data.path) ? "" : data.path;
+                const absPath = "/home/hara/" + currentPath;
+                document.getElementById("current").innerText = absPath;
+                document.getElementById("output").innerText = absPath;
+
+                const folderDiv = document.getElementById("folders");
+                const fileDiv = document.getElementById("files");
+                folderDiv.innerHTML = "";
+                fileDiv.innerHTML = "";
+
+                // Hoch-Button
+                if (currentPath !== "") {
+                    const upBtn = document.createElement("button");
+                    upBtn.innerText = "⬆️ Hoch";
+                    upBtn.onclick = () => {
+                        const parts = currentPath.split("/").filter(Boolean);
+                        parts.pop();
+                        loadFolders(parts.join("/"));
+                    };
+                    folderDiv.appendChild(upBtn);
+                }
+
+                // Ordner-Buttons
+                (data.folders || []).forEach(folder => {
+                    const btn = document.createElement("button");
+                    btn.innerText = "📂 " + folder;
+                    btn.onclick = () => loadFolders((currentPath ? currentPath + "/" : "") + folder);
+                    folderDiv.appendChild(btn);
+                });
+
+                // Dateien nur als Textliste
+                if (data.files && data.files.length > 0) {
+                    fileDiv.innerText = "Dateien:\n" + data.files.join("\n");
+                }
+
+            } catch (err) {
+                document.getElementById("current").innerText = "Fehler: " + err.message;
+                document.getElementById("folders").innerHTML = "";
+                document.getElementById("files").innerHTML = "";
+                document.getElementById("output").innerText = "";
+            }
+        }
+
+        window.addEventListener("load", () => loadFolders(""));
+
+		async function setEventListener() {
+    const button = document.getElementById("play");
+    button.addEventListener("click", async () => {
+        if (!currentPath) {
+            alert("Kein Verzeichnis gewählt!");
+            return;
+        }
+
+        try {
+            const resp = await fetch("/add-folder", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ path: currentPath })
+            });
+            const data = await resp.json();
+            if (data.error) {
+                alert("Fehler: " + data.error);
+            } else {
+                alert(data.output || "Ordner wurde hinzugefügt!");
+                document.getElementById("output").innerText = data.output;
+            }
+        } catch (err) {
+            alert("Fehler: " + err.message);
+        }
+    });
+}
+window.addEventListener("load", () => setEventListener());
+		
+		
+    </script>
+</head>
+<body>
+    <a href="/"><button>PLAYER</button></a>
+    <p><span id="current"></span></p>
+
+    <div id="folders"></div>
+    <div id="files"></div>
+
+	<button id="play">Load</button>
+
+    <button id="output"></button>
+</body>
+</html>
