@@ -4,16 +4,27 @@
     <meta charset="UTF-8">
     <title>Radio Pi – Verzeichnis-Browser</title>
     <style>
-		body {
-			margin: 0;
-			padding: 10px;
-			background-color: #f4f4f4;
-			display: flex;
-			justify-content: center;
-			align-items: flex-start;
-			min-height: 100vh;
-			box-sizing: border-box;
-		}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.schalter {
+    width: 100%;
+    max-width: 600px;   /* optional, verhindert dass es am PC zu breit wird */
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-radius: 0;   /* keine runden Ecken → echte „volle Breite“ */
+    box-sizing: border-box;
+}
 		.button {
 			background-color: #4c4c4c;
 			border: none;
@@ -41,15 +52,7 @@
 
 		#files {
 			white-space: pre-wrap;
-		}
-		.schalter {
-			margin: 0 auto;
-			padding: 10px;
-			background-color: white;
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-			text-align: center;
-			border-radius: 10px;
-		}
+
 		.nachricht {
 			margin: 0 auto;
 			padding: 10px;
