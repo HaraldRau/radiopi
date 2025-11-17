@@ -37,6 +37,7 @@ body {
 			margin: 2px;
 			cursor: pointer;
 			width: 200px;
+			high: 100px;
 		}
 		
         pre {
@@ -97,7 +98,7 @@ body {
                 // Hoch-Button
                 if (currentPath !== "") {
                     const upBtn = document.createElement("button");
-                    upBtn.innerText = "⬆️ Hoch";
+                    upBtn.innerText = "HOCH";
                     upBtn.onclick = () => {
                         const parts = currentPath.split("/").filter(Boolean);
                         parts.pop();
@@ -109,7 +110,7 @@ body {
                 // Ordner-Buttons
                 (data.folders || []).forEach(folder => {
                     const btn = document.createElement("button");
-                    btn.innerText = "📂 " + folder;
+                    btn.innerText = folder;
                     btn.onclick = () => loadFolders((currentPath ? currentPath + "/" : "") + folder);
                     folderDiv.appendChild(btn);
                 });
