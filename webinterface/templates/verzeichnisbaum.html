@@ -24,7 +24,7 @@ body {
     border-radius: 0;   /* keine runden Ecken → echte „volle Breite“ */
     box-sizing: border-box;
 }
-		.button {
+		button {
 			background-color: #4c4c4c;
 			border: none;
 			color: white;
@@ -164,11 +164,11 @@ window.addEventListener("load", () => setEventListener());
 	<div class="schalter">
 		<p><a href="/"><button class="button"><h3>PLAYER</h3></button></a></p>
 		<p><span id="current"></span></p>
-		<div id="folders"><h3></h3></div>
-		<div id="files"><h5></h5></div>
-		<p><button class="button" id="play"><h3>LOAD</h3></button></p>
+		<div id="folders"></div>
+		<div id="files"></div>
+		<p><button id="play"><h3>LOAD</h3></button></p>
 		<div class="nachricht">
-			<pre><h5 id="output"></h5></pre>
+			<pre id="output"></pre>
 		</div>
 	</div>
 </body>
