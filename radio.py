@@ -61,9 +61,6 @@ def senderwahl():
 				#==Anhalten==
 				time.sleep(1)
 				if GPIO.input(sw) == 0:
-					display.lcd_clear()					
-					display.lcd_display_string("Herunterfahren  ", 1)
-					time.sleep(1)
 					display.lcd_backlight(0)
 					os.system('sudo halt -p')
 				
