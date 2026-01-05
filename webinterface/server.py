@@ -18,7 +18,7 @@ ALLOWED_COMMANDS = {
     "mocp_for": "mocp --seek=10",
     "mocp_back": "mocp --seek=-10",
     "halt": "sudo halt -p",
-    "status": "sudo systemctl status radiopi"
+    "smb": "sudo mount -t cifs //192.168.178.20/usb/Musik /home/hara/musik -o username=volumio,password=hraudell"
 }
 
 # === Player-Seite ===
