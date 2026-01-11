@@ -1,13 +1,13 @@
 def sender(id):
   sender = [
-    ["Radio Caroline","http://sc2.radiocaroline.net:10558/"],
-    ["Radio Nora","http://streams.norawebstreams.de/nora-oldies/mp3-192/"],
-    ["RSA Oldies","http://streams.rsa-sachsen.de/rsa-oldies/mp3-192/mediaplayerrsa"],
-    ["Radio Bremen","https://icecast.radiobremen.de/rb/bremeneins/live/mp3/128/stream.mp3"],
-    ["Hits 70s","http://stream.laut.fm/1-hits70s"],
-    ["Our Generation","https://stream.laut.fm/oldies"],
-    ["Beat Goes on","http://stream.laut.fm/the-beat-goes-on"],
-    ["Northern Soul","http://stream.laut.fm/northernsoul"]
+    ["RC01","http://sc2.radiocaroline.net:10558/"],
+    ["RN02","http://streams.norawebstreams.de/nora-oldies/mp3-192/"],
+    ["RO03","http://streams.rsa-sachsen.de/rsa-oldies/mp3-192/mediaplayerrsa"],
+    ["RB04","https://icecast.radiobremen.de/rb/bremeneins/live/mp3/128/stream.mp3"],
+    ["H705","http://stream.laut.fm/1-hits70s"],
+    ["OG06","https://stream.laut.fm/oldies"],
+    ["BG07","http://stream.laut.fm/the-beat-goes-on"],
+    ["NS08","http://stream.laut.fm/northernsoul"]
   ]
   if id >= len(sender):
     id = len(sender)-1
