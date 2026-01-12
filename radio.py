@@ -15,7 +15,7 @@ sw = 13
 counter = 0
 cur_counter = 0
 activplayer = 0
-display.lcd_backlight(0)
+# display.lcd_backlight(0)
 
 # GPIO einrichten =============================================================
 GPIO.setwarnings(False)
