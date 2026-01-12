@@ -1,6 +1,6 @@
 <h3>Radio Pi</h3>
 
-<img src="bilder/RadioPiKY040_Steckplatine.png" width="400">
+<img src="bilder/RadioPi_B_2_Steckplatine.jpg" width="400">
 
 <h4>Update</h4>
 <p><code>git -C /home/hara/radiopi/ pull https://github.com/HaraldRau/radiopi.git</code></p>
