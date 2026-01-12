@@ -1,11 +1,11 @@
 from RPi import GPIO
 import time
 import os
-import drivers
+# import drivers
 import senderliste
 import atexit
-display = drivers.Lcd(0x27)
-display.lcd_display_string("Radio Pi V 1.01", 1)
+# display = drivers.Lcd(0x27)
+# display.lcd_display_string("Radio Pi V 1.01", 1)
 from threading import Thread
 
 # Variablen ====================================================================
@@ -24,7 +24,7 @@ GPIO.setup(clk, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(sw, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 time.sleep(1)
-display.lcd_display_string("Playlist ON!", 2)
+# display.lcd_display_string("Playlist ON!", 2)
 time.sleep(2)
 os.system('mocp -p')
 os.system('mocp -v 100')
@@ -54,15 +54,15 @@ def senderwahl():
 				time.sleep(1)
 				#==PLAYLISTE==
 				if GPIO.input(sw) == 0:
-					display.lcd_clear()
-					display.lcd_display_string("Playlist ON!    ", 2)
+					# display.lcd_clear()
+					# display.lcd_display_string("Playlist ON!    ", 2)
 					time.sleep(1)
 					if GPIO.input(sw) == 1:
 						os.system('mocp -p')
 				#==Anhalten==
 				time.sleep(1)
 				if GPIO.input(sw) == 0:
-					display.lcd_backlight(0)
+					# display.lcd_backlight(0)
 					os.system('sudo halt -p')
 				
 				
@@ -87,9 +87,9 @@ while True:
 			terminal = f"mocp --playit {sender[1]}"
 			os.system(terminal)
 			anzeige = sender[0]
-			display.lcd_clear()
-			display.lcd_display_string(anzeige, 1)
-			display.lcd_display_string("Radio ON!       ", 2)
+			# display.lcd_clear()
+			# display.lcd_display_string(anzeige, 1)
+			# display.lcd_display_string("Radio ON!       ", 2)
 			activplayer = 1
 		if not(frequenz % 2):
 			activplayer = 0
