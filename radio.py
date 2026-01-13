@@ -1,9 +1,13 @@
 from RPi import GPIO
 import time
 import os
+import tm1637
+import datetime
 # import drivers
 import senderliste
 import atexit
+display = tm1637.TM1637(clk=27, dio=17)
+display.show("goan")
 # display = drivers.Lcd(0x27)
 # display.lcd_display_string("Radio Pi V 1.01", 1)
 from threading import Thread
