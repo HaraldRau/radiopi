@@ -7,9 +7,7 @@ import datetime
 import senderliste
 import atexit
 display = tm1637.TM1637(clk=27, dio=17)
-display.show("goan")
-# display = drivers.Lcd(0x27)
-# display.lcd_display_string("Radio Pi V 1.01", 1)
+display.show("goon")
 from threading import Thread
 
 # Variablen ====================================================================
@@ -19,7 +17,6 @@ sw = 13
 counter = 0
 cur_counter = 0
 activplayer = 0
-# display.lcd_backlight(0)
 
 # GPIO einrichten =============================================================
 GPIO.setwarnings(False)
