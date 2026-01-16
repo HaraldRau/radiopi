@@ -4,13 +4,15 @@ import os
 import tm1637
 import datetime
 import senderliste
-import atexit
+import atexitfrom
+threading import Thread
+
 display = tm1637.TM1637(clk=27, dio=17)
 display.show("goon")
 time.sleep(3)
 jetzt = datetime.datetime.now()
 display.numbers(jetzt.hour,jetzt.minute)
-from threading import Thread
+
 
 # Variablen ====================================================================
 clk = 5
@@ -35,7 +37,7 @@ os.system('mocp -v 100')
 # Automatische Bereinigung bei Beenden des Programms ==========================
 atexit.register(GPIO.cleanup)
 
-# Funktion für Tread Abfrage des Senderwählers K ==============================
+# Tread Abfrage des Senderwählers =============================================
 def senderwahl():
 	global counter
 	counter = 0
@@ -72,9 +74,18 @@ def senderwahl():
 	finally:
 		GPIO.cleanup()
 
+# Thread Zeitanasge ============================================================
+def zeitansage():
+	time.sleep(10)
+	jetzt = datetime.datetime.now()
+	display.numbers(jetzt.hour,jetzt.minute)
+	time.sleep(10)
+	
 # Thread zuweisen und starten ==================================================
 sendersuche = Thread(target=senderwahl)
 sendersuche.start()
+zeit = Thread(target=zeitansage)
+zeit.start()
 
 # Hauptprogramm ================================================================
 while True:
