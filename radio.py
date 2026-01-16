@@ -8,7 +8,8 @@ import atexit
 from threading import Thread
 
 display = tm1637.TM1637(clk=27, dio=17)
-display.show("goon")
+start = "cool"
+display.show(start)
 time.sleep(3)
 jetzt = datetime.datetime.now()
 display.numbers(jetzt.hour,jetzt.minute)
