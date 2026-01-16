@@ -102,9 +102,8 @@ while True:
 			terminal = f"mocp --playit {sender[1]}"
 			os.system(terminal)
 			anzeige = sender[0]
-			# display.lcd_clear()
-			# display.lcd_display_string(anzeige, 1)
-			# display.lcd_display_string("Radio ON!       ", 2)
+			# display.clear()
+			# display.show(anzeige)
 			activplayer = 1
 		if not(frequenz % 2):
 			activplayer = 0
