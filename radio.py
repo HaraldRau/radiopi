@@ -4,8 +4,8 @@ import os
 import tm1637
 import datetime
 import senderliste
-import atexitfrom
-threading import Thread
+import atexit
+from threading import Thread
 
 display = tm1637.TM1637(clk=27, dio=17)
 display.show("goon")
