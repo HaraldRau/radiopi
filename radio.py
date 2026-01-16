@@ -76,10 +76,11 @@ def senderwahl():
 
 # Thread Zeitanasge ============================================================
 def zeitansage():
-	time.sleep(10)
-	jetzt = datetime.datetime.now()
-	display.numbers(jetzt.hour,jetzt.minute)
-	time.sleep(10)
+	while True:
+		time.sleep(10)
+		jetzt = datetime.datetime.now()
+		display.numbers(jetzt.hour,jetzt.minute)
+		time.sleep(10)
 	
 # Thread zuweisen und starten ==================================================
 sendersuche = Thread(target=senderwahl)
