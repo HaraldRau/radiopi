@@ -1,11 +1,13 @@
 <h2>Meilensteine</h2>
 <h3>OFFEN</h3>
 <ul>
-  <li>Weboberfläche entwickeln</li>
-  <li>Ordner mit Musik über die Weboberfläche einlesen</li>
+  <li>Zeitansage</li>
+  <li>7 Segment Display</li>
 </ul>
 <h3>BEENDET</h3>
 <ul>
+  <li>Weboberfläche entwickeln</li>
+  <li>Ordner mit Musik über die Weboberfläche einlesen</li>
   <li>mocp -S als systemd Dienst</li>
   <li>radiopi als systemd Dienst</li>
   <li>mocp -S als hara</li>
