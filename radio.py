@@ -29,10 +29,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(clk, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(sw, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-time.sleep(1)
-# display.lcd_display_string("Playlist ON!", 2)
 time.sleep(2)
-os.system('mocp -p')
 os.system('mocp -v 100')
 
 # Automatische Bereinigung bei Beenden des Programms ==========================
