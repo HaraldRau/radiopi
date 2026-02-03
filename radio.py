@@ -13,6 +13,7 @@ display.show(start)
 time.sleep(3)
 jetzt = datetime.datetime.now()
 display.numbers(jetzt.hour,jetzt.minute)
+os.system('sudo sudo alsactl restore')
 
 
 # Variablen ====================================================================
@@ -30,7 +31,7 @@ GPIO.setup(clk, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(dt, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(sw, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 time.sleep(2)
-os.system('mocp -v 100')
+# os.system('mocp -v 100')
 
 # Automatische Bereinigung bei Beenden des Programms ==========================
 atexit.register(GPIO.cleanup)
