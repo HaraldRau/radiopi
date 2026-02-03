@@ -4,8 +4,6 @@ After=network.target sound.target alsa-restore.service mocplay.service
 Requires=sound.target
 
 [Service]
-PermissionsStartOnly=true
-ExecStartPre=/usr/sbin/alsactl restore
 ExecStart=python /home/hara/radiopi/radio.py
 WorkingDirectory=/home/hara/radiopi
 Restart=always
