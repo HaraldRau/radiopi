@@ -12,7 +12,8 @@ MusicDir = /home/hara/musik
 # debugging).  You can enter more than one driver as a colon-separated
 # list.  The first working driver will be used.
 SoundDriver = ALSA
-Softmixer = no
+Softmixer = false
+Softmixer_UseMaster = false
 
 # Jack output settings.
 #JackClientName = "moc"
