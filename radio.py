@@ -7,7 +7,7 @@ import senderliste
 import atexit
 from threading import Thread
 
-display = tm1637.TM1637(clk=27, dio=17)
+display = tm1637.TM1637(clk=27, dio=17, brightness=3)
 start = "cool"
 display.show(start)
 time.sleep(3)
