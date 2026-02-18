@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_from_directory
 import os
 import subprocess
 
@@ -112,6 +112,26 @@ def add_folder():
         return jsonify({"output": f"Ordner hinzugefügt: {curr_abs}"})
     except subprocess.CalledProcessError as e:
         return jsonify({"error": str(e)}), 500
+
+# === Route Cover auslesen ===
+@app.route("/cover")
+def cover():
+    rel_path = request.args.get("path", "")
+    folder_path = os.path.normpath(os.path.join(BASE_DIR, rel_path))
+
+    base_abs = os.path.abspath(BASE_DIR)
+    curr_abs = os.path.abspath(folder_path)
+
+    if not curr_abs.startswith(base_abs):
+        return "", 404
+
+    # mögliche Bildnamen
+    for name in ["folder.jpg", "cover.jpg", "Folder.jpg"]:
+        img_path = os.path.join(curr_abs, name)
+        if os.path.exists(img_path):
+            return send_from_directory(curr_abs, name)
+
+    return "", 404
    
 
 if __name__ == "__main__":
