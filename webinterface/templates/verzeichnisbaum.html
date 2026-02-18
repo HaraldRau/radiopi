@@ -13,21 +13,30 @@ body {
     align-items: flex-start;
     box-sizing: border-box;
 }
-		button {
-			background-color: #4c4c4c;
-			border: none;
-			color: white;
-			border-radius: 5px;
-			padding: 5px;
-			text-align: center;
-			text-decoration: none;
-			display: inline-block;
-			font-size: 28px;
-			margin: 2px;
-			cursor: pointer;
-			display: flex;
-			flex-direction: column;
+	button {
+		background-color: #4c4c4c;
+		border: none;
+		color: white;
+		border-radius: 8px;
+		padding: 8px;
+		text-align: center;
+		font-size: 18px;
+		margin: 6px;
+		cursor: pointer;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 340px;
 		}
+	button img {
+		width: 100%;            /* füllt Button-Breite */
+		max-width: 330px;       /* LP-Größe */
+		height: auto;           /* Seitenverhältnis behalten */
+		aspect-ratio: 1 / 1;    /* quadratisch wie LP */
+		object-fit: cover;
+		border-radius: 6px;
+		display: block;
+}
 		
         pre {
             background: #eee;
@@ -59,6 +68,12 @@ body {
 			padding: 10px;
 			background-color: white;
 			border-radius: 10px;
+		}
+
+		#folderDiv {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
 		}
     </style>
     <script>
@@ -102,12 +117,34 @@ body {
                 }
 
                 // Ordner-Buttons
-                (data.folders || []).forEach(folder => {
-                    const btn = document.createElement("button");
-                    btn.innerText = folder;
-                    btn.onclick = () => loadFolders((currentPath ? currentPath + "/" : "") + folder);
-                    folderDiv.appendChild(btn);
-                });
+(data.folders || []).forEach(folder => {
+    const fullPath = (currentPath ? currentPath + "/" : "") + folder;
+
+    const btn = document.createElement("button");
+    btn.onclick = () => loadFolders(fullPath);
+
+    const img = document.createElement("img");
+    img.src = "/cover?path=" + encodeURIComponent(fullPath);
+    img.style.width = "150px";
+    img.style.height = "150px";
+    img.style.objectFit = "cover";
+
+    img.onerror = () => {
+        btn.innerText = folder;   // fallback: Text anzeigen
+    };
+
+    btn.appendChild(img);
+	// === Titel unter dem Bild ===
+    const label = document.createElement("span");
+    label.innerText = folder;
+    label.style.marginTop = "6px";
+    label.style.fontSize = "16px";
+
+    btn.appendChild(label);
+    // ============================
+	
+    folderDiv.appendChild(btn);
+});
 
                 // Dateien nur als Textliste
                 if (data.files && data.files.length > 0) {
