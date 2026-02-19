@@ -4,7 +4,7 @@ import subprocess
 
 app = Flask(__name__)
 
-BASE_DIR = "/home/hara/Musik"  # Startpunkt für Verzeichnis-Browser
+BASE_DIR = "/run/user/1000/gvfs/smb-share:server=volumio.local,share=usb/MUSIK"  # Startpunkt für Verzeichnis-Browser
 
 # Erlaubte Befehle (Whitelist)
 ALLOWED_COMMANDS = {
