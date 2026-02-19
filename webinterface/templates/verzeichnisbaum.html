@@ -35,20 +35,27 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+#folders button img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+}
 		
-        pre {
-            background: #eee;
-            padding: 10px;
-            border-radius: 6px;
-        }
+pre {
+	background: #eee;
+	padding: 10px;
+	border-radius: 6px;
+}
 		
-		.topbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background: white;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+.topbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 20px;
+	background: white;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .icon-button {
@@ -67,8 +74,7 @@ body {
     overflow-y: auto;
 }
 
-
-    </style>
+</style>
     <script>
         let currentPath = "";
 
