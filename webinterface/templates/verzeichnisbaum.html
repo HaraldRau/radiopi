@@ -83,19 +83,15 @@ body {
                     document.getElementById("current").innerText = "Fehler: " + data.error;
                     document.getElementById("folders").innerHTML = "";
                     document.getElementById("files").innerHTML = "";
-                    document.getElementById("output").innerText = "";
                     return;
                 }
 
                 currentPath = (data.path === "." || data.path === "/" || !data.path) ? "" : data.path;
                 const absPath = "/home/hara/" + currentPath;
                 document.getElementById("current").innerText = absPath;
-                document.getElementById("output").innerText = absPath;
 
                 const folderDiv = document.getElementById("folders");
-                const fileDiv = document.getElementById("files");
                 folderDiv.innerHTML = "";
-                fileDiv.innerHTML = "";
 
                 // Hoch-Button
                 if (currentPath !== "") {
@@ -134,16 +130,11 @@ body {
     folderDiv.appendChild(btn);
 });
 
-                // Dateien nur als Textliste
-                if (data.files && data.files.length > 0) {
-                    fileDiv.innerText = "Dateien:\n" + data.files.join("\n");
-                }
 
             } catch (err) {
                 document.getElementById("current").innerText = "Fehler: " + err.message;
                 document.getElementById("folders").innerHTML = "";
                 document.getElementById("files").innerHTML = "";
-                document.getElementById("output").innerText = "";
             }
         }
 
@@ -168,7 +159,6 @@ body {
                 alert("Fehler: " + data.error);
             } else {
                 alert(data.output || "Ordner wurde hinzugefügt!");
-                document.getElementById("output").innerText = data.output;
             }
         } catch (err) {
             alert("Fehler: " + err.message);
