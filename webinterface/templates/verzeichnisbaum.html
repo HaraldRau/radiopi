@@ -6,28 +6,35 @@
     <style>
 body {
     margin: 0;
-    padding: 0;
     background-color: #f4f4f4;
+    font-family: sans-serif;
+
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    box-sizing: border-box;
+    flex-direction: column;
+    height: 100vh;
 }
-	button {
-		/*background-color: #4c4c4c;*/
-		border: none;
-		/*color: white;*/
-		border-radius: 8px;
-		padding: 8px;
-		text-align: center;
-		font-size: 18px;
-		margin: 6px;
-		cursor: pointer;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		/*width: 340px;*/
-		}
+		
+#folders button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+		
+#folders button span {
+    margin-top: 6px;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}		
 	button img {
 		width: 100%;            /* füllt Button-Breite */
 		max-width: 330px;       /* LP-Größe */
@@ -70,11 +77,32 @@ body {
 			border-radius: 10px;
 		}
 
-		#folderDiv {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-		}
+		.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+#folders {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+
     </style>
     <script>
         let currentPath = "";
@@ -125,9 +153,6 @@ body {
 
     const img = document.createElement("img");
     img.src = "/cover?path=" + encodeURIComponent(fullPath);
-    img.style.width = "150px";
-    img.style.height = "150px";
-    img.style.objectFit = "cover";
 
     img.onerror = () => {
         btn.innerText = folder;   // fallback: Text anzeigen
@@ -137,8 +162,6 @@ body {
 	// === Titel unter dem Bild ===
     const label = document.createElement("span");
     label.innerText = folder;
-    label.style.marginTop = "6px";
-    label.style.fontSize = "16px";
 
     btn.appendChild(label);
     // ============================
@@ -193,9 +216,12 @@ window.addEventListener("load", () => setEventListener());
     </script>
 </head>
 <body>
+	<div class="topbar">
+    <button class="icon-button">▶</button>
+    <span id="current"></span>
+    <button id="play" class="icon-button">⏏</button>
+</div>
 	<div class="schalter">
-		<p><a href="/"><button class="button">PLAY</button></a></p>
-		<p><span id="current"></span></p>
 		<div id="folders"></div>
 		<div id="files"></div>
 		<p><button id="play">LOAD</button></p>
