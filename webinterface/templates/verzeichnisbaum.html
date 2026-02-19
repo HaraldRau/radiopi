@@ -34,15 +34,6 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}		
-	button img {
-		width: 100%;            /* füllt Button-Breite */
-		max-width: 330px;       /* LP-Größe */
-		height: auto;           /* Seitenverhältnis behalten */
-		aspect-ratio: 1 / 1;    /* quadratisch wie LP */
-		object-fit: cover;
-		border-radius: 6px;
-		display: block;
 }
 		
         pre {
@@ -50,33 +41,7 @@ body {
             padding: 10px;
             border-radius: 6px;
         }
-        #files {
-            margin-top: 150px;
-            white-space: pre-wrap;
-        }
-
-		.nachricht {
-			margin: 0 auto;
-			padding: 10px;
-			background-color: lightgray;
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-			/* Zeilenumbruch aktivieren */
-			word-wrap: break-word;
-			overflow-wrap: break-word;
-			/* Optional für Scrollen bei zu langem Text */
-			overflow: hidden;
-			border-radius: 10px;
-		}
 		
-		.schalter {
-			/*display: flex;*/
-			justify-content: center;
-			margin: 0 auto;
-			padding: 10px;
-			background-color: white;
-			border-radius: 10px;
-		}
-
 		.topbar {
     display: flex;
     justify-content: space-between;
@@ -216,18 +181,15 @@ window.addEventListener("load", () => setEventListener());
     </script>
 </head>
 <body>
-	<div class="topbar">
+
+<div class="topbar">
     <button class="icon-button">▶</button>
     <span id="current"></span>
     <button id="play" class="icon-button">⏏</button>
 </div>
-	<div class="schalter">
-		<div id="folders"></div>
-		<div id="files"></div>
-		<p><button id="play">LOAD</button></p>
-		<div class="nachricht">
-			<pre id="output"></pre>
-		</div>
-	</div>
+
+<div id="folders"></div>
+
 </body>
+
 </html>
