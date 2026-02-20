@@ -192,16 +192,18 @@ window.addEventListener("load", () => setEventListener());
 
 <div class="topbar">
 	<button id="up" class="icon-button">
-        <img src="/icon/hoch.png" alt="HOCH">
+		<img src="{{ url_for('static', filename='hoch.png') }}">
     </button>
 	
 	<button class="icon-button">
-		<a href="/" class="icon-button"><img src="/icon/home.png" alt="HOME"></a>
+		<a href="/" class="icon-button"><img src="{{ url_for('static', filename='home.png') }}"></a>
 	</button>
 	
    <!-- <span id="current"></span> -->
     
-	<button id="play" class="icon-button"><img src="/icon/play.png" alt="PLAY"></button>
+	<button id="play" class="icon-button">
+		<img src="{{ url_for('static', filename='play.png') }}">
+	</button>
 </div>
 
 <div id="folders"></div>
