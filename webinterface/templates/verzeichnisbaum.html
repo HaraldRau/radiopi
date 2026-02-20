@@ -69,6 +69,12 @@ pre {
     cursor: pointer;
 }
 
+.icon-button img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
 #folders {
     flex: 1;
     display: grid;
@@ -81,7 +87,7 @@ pre {
 </style>
     <script>
         let currentPath = "";
-
+		// Ordner laden
         async function loadFolders(path = "") {
             const safePath = (path === undefined || path === null || path === "undefined") ? "" : path;
 
@@ -103,20 +109,10 @@ pre {
                 const folderDiv = document.getElementById("folders");
                 folderDiv.innerHTML = "";
 
-                // Hoch-Button
-                if (currentPath !== "") {
-                    const upBtn = document.createElement("button");
-                    upBtn.innerText = "HOCH";
-                    upBtn.onclick = () => {
-                        const parts = currentPath.split("/").filter(Boolean);
-                        parts.pop();
-                        loadFolders(parts.join("/"));
-                    };
-                    folderDiv.appendChild(upBtn);
-                }
+                // Hoch-Button--->
 
-                // Ordner-Buttons
-(data.folders || []).forEach(folder => {
+        // Ordner-Buttons erzeugen
+	(data.folders || []).forEach(folder => {
     const fullPath = (currentPath ? currentPath + "/" : "") + folder;
 
     const btn = document.createElement("button");
@@ -150,7 +146,7 @@ pre {
 
         window.addEventListener("load", () => loadFolders(""));
 
-		async function setEventListener() {
+async function setEventListener() {
     const button = document.getElementById("play");
     button.addEventListener("click", async () => {
         if (!currentPath) {
@@ -174,6 +170,16 @@ pre {
             alert("Fehler: " + err.message);
         }
     });
+
+	const upButton = document.getElementById("up");
+
+upButton.addEventListener("click", () => {
+    if (!currentPath) return;
+
+    const parts = currentPath.split("/").filter(Boolean);
+    parts.pop();
+    loadFolders(parts.join("/"));
+});
 }
 window.addEventListener("load", () => setEventListener());
 		
@@ -183,11 +189,17 @@ window.addEventListener("load", () => setEventListener());
 <body>
 
 <div class="topbar">
-    <button class="icon-button">
+	<button id="up" class="icon-button">
+        <img src="src="http://fietsmeter.de/hoch.png" alt="Hoch">
+    </button>
+	
+	<button class="icon-button">
 		<a href="/" class="icon-button"><img src="http://fietsmeter.de/home.png" alt="HOME"></a>
 	</button>
+	
     <span id="current"></span>
-    <button id="play" class="icon-button"><img src="http://fietsmeter.de/play.png" alt="PLAY"></button>
+    
+	<button id="play" class="icon-button"><img src="http://fietsmeter.de/play.png" alt="PLAY"></button>
 </div>
 
 <div id="folders"></div>
