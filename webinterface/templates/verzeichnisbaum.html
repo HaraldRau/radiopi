@@ -37,10 +37,14 @@ body {
 }
 
 #folders button img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
+	width: 100%;            /* füllt Button-Breite */
+    max-width: 330px;       /* LP-Größe */
+    /*height: auto;         	 Seitenverhältnis behalten */
+    aspect-ratio: 1 / 1;    /* quadratisch wie LP */
     object-fit: cover;
-    border-radius: 8px;
+
+    border-radius: 6px;
+    /*display: block;*/
 }
 		
 pre {
