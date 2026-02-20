@@ -98,7 +98,7 @@ pre {
                 const data = await resp.json();
 
                 if (data.error) {
-                    document.getElementById("current").innerText = "Fehler: " + data.error;
+                    // document.getElementById("current").innerText = "Fehler: " + data.error;
                     document.getElementById("folders").innerHTML = "";
                     document.getElementById("files").innerHTML = "";
                     return;
@@ -106,7 +106,7 @@ pre {
 
                 currentPath = (data.path === "." || data.path === "/" || !data.path) ? "" : data.path;
                 const absPath = "/home/hara/" + currentPath;
-                document.getElementById("current").innerText = absPath;
+                // document.getElementById("current").innerText = absPath;
 
                 const folderDiv = document.getElementById("folders");
                 folderDiv.innerHTML = "";
@@ -140,7 +140,7 @@ pre {
 
 
             } catch (err) {
-                document.getElementById("current").innerText = "Fehler: " + err.message;
+                // document.getElementById("current").innerText = "Fehler: " + err.message;
                 document.getElementById("folders").innerHTML = "";
                 document.getElementById("files").innerHTML = "";
             }
@@ -192,16 +192,16 @@ window.addEventListener("load", () => setEventListener());
 
 <div class="topbar">
 	<button id="up" class="icon-button">
-        <img src="http://fietsmeter.de/hoch.png" alt="Hoch">
+        <img src="/icon/hoch.png" alt="HOCH">
     </button>
 	
 	<button class="icon-button">
-		<a href="/" class="icon-button"><img src="http://fietsmeter.de/home.png" alt="HOME"></a>
+		<a href="/" class="icon-button"><img src="/icon/home.png" alt="HOME"></a>
 	</button>
 	
-    <span id="current"></span>
+   // <span id="current"></span>
     
-	<button id="play" class="icon-button"><img src="http://fietsmeter.de/play.png" alt="PLAY"></button>
+	<button id="play" class="icon-button"><img src="/icon/play.png" alt="PLAY"></button>
 </div>
 
 <div id="folders"></div>
