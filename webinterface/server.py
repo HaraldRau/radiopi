@@ -74,6 +74,7 @@ def list_folders():
         f for f in items
         if os.path.isfile(os.path.join(curr_abs, f)) and not f.startswith(".") and f.lower().endswith((".mp3", ".flac"))
     ]
+    files.sort(key=str.lower)
 
     display_path = "" if curr_abs == base_abs else os.path.relpath(curr_abs, base_abs)
     return jsonify({"path": display_path, "folders": folders, "files": files})
