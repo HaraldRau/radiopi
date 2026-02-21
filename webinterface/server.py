@@ -1,10 +1,11 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_from_directory
 import os
 import subprocess
 
 app = Flask(__name__)
 
-BASE_DIR = "/home/hara/musik"  # Startpunkt für Verzeichnis-Browser
+# BASE_DIR = "/home/hara/musik"  # Startpunkt für Verzeichnis-Browser
+BASE_DIR = "/run/user/1000/gvfs/smb-share:server=volumio.local,share=usb/MUSIK"
 
 # Erlaubte Befehle (Whitelist)
 ALLOWED_COMMANDS = {
@@ -67,7 +68,13 @@ def list_folders():
         return jsonify({"error": str(e), "path": curr_abs}), 500
 
     folders = [f for f in items if os.path.isdir(os.path.join(curr_abs, f))]
-    files = [f for f in items if os.path.isfile(os.path.join(curr_abs, f))]
+    ## files = [f for f in items if os.path.isfile(os.path.join(curr_abs, f))]
+
+    files = [
+        f for f in items
+        if os.path.isfile(os.path.join(curr_abs, f)) and not f.startswith(".") and f.lower().endswith((".mp3", ".flac"))
+    ]
+    files.sort(key=str.lower)
 
     display_path = "" if curr_abs == base_abs else os.path.relpath(curr_abs, base_abs)
     return jsonify({"path": display_path, "folders": folders, "files": files})
@@ -112,6 +119,26 @@ def add_folder():
         return jsonify({"output": f"Ordner hinzugefügt: {curr_abs}"})
     except subprocess.CalledProcessError as e:
         return jsonify({"error": str(e)}), 500
+
+# === Route Cover auslesen ===
+@app.route("/cover")
+def cover():
+    rel_path = request.args.get("path", "")
+    folder_path = os.path.normpath(os.path.join(BASE_DIR, rel_path))
+
+    base_abs = os.path.abspath(BASE_DIR)
+    curr_abs = os.path.abspath(folder_path)
+
+    if not curr_abs.startswith(base_abs):
+        return "", 404
+
+    # mögliche Bildnamen
+    for name in ["folder.jpg", "cover.jpg", "Folder.jpg"]:
+        img_path = os.path.join(curr_abs, name)
+        if os.path.exists(img_path):
+            return send_from_directory(curr_abs, name)
+
+    return "", 404
    
 
 if __name__ == "__main__":

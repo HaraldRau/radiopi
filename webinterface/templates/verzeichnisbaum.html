@@ -6,64 +6,99 @@
     <style>
 body {
     margin: 0;
-    padding: 0;
     background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    box-sizing: border-box;
-}
-		button {
-			background-color: #4c4c4c;
-			border: none;
-			color: white;
-			border-radius: 5px;
-			padding: 5px;
-			text-align: center;
-			text-decoration: none;
-			display: inline-block;
-			font-size: 28px;
-			margin: 2px;
-			cursor: pointer;
-			display: flex;
-			flex-direction: column;
-		}
-		
-        pre {
-            background: #eee;
-            padding: 10px;
-            border-radius: 6px;
-        }
-        #files {
-            margin-top: 150px;
-            white-space: pre-wrap;
-        }
+    font-family: sans-serif;
 
-		.nachricht {
-			margin: 0 auto;
-			padding: 10px;
-			background-color: lightgray;
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-			/* Zeilenumbruch aktivieren */
-			word-wrap: break-word;
-			overflow-wrap: break-word;
-			/* Optional für Scrollen bei zu langem Text */
-			overflow: hidden;
-			border-radius: 10px;
-		}
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
 		
-		.schalter {
-			/*display: flex;*/
-			justify-content: center;
-			margin: 0 auto;
-			padding: 10px;
-			background-color: white;
-			border-radius: 10px;
-		}
-    </style>
+#folders button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+		
+#folders button span {
+    margin-top: 6px;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#folders button img {
+	width: 100%;            /* füllt Button-Breite */
+    max-width: 330px;       /* LP-Größe */
+    height: auto;         	 /*Seitenverhältnis behalten */
+    aspect-ratio: 1 / 1;    /* quadratisch wie LP */
+    object-fit: cover;
+
+    border-radius: 6px;
+    display: block;
+}
+
+#files {
+    padding: 20px;
+    font-size: 14px;
+    background: #fafafa;
+    border-top: 1px solid #ddd;
+    white-space: pre-wrap;
+}
+		
+pre {
+	background: #eee;
+	padding: 10px;
+	border-radius: 6px;
+}
+		
+.topbar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 25px;
+	height: 120px;
+	background: white;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.icon-button img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+#folders {
+	flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+    justify-content: start;
+	align-content: start;
+    gap: 15px;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+</style>
     <script>
         let currentPath = "";
-
+		// Ordner laden
         async function loadFolders(path = "") {
             const safePath = (path === undefined || path === null || path === "undefined") ? "" : path;
 
@@ -72,59 +107,65 @@ body {
                 const data = await resp.json();
 
                 if (data.error) {
-                    document.getElementById("current").innerText = "Fehler: " + data.error;
+                    // document.getElementById("current").innerText = "Fehler: " + data.error;
                     document.getElementById("folders").innerHTML = "";
                     document.getElementById("files").innerHTML = "";
-                    document.getElementById("output").innerText = "";
                     return;
                 }
 
                 currentPath = (data.path === "." || data.path === "/" || !data.path) ? "" : data.path;
                 const absPath = "/home/hara/" + currentPath;
-                document.getElementById("current").innerText = absPath;
-                document.getElementById("output").innerText = absPath;
+                // document.getElementById("current").innerText = absPath;
 
                 const folderDiv = document.getElementById("folders");
-                const fileDiv = document.getElementById("files");
                 folderDiv.innerHTML = "";
-                fileDiv.innerHTML = "";
 
-                // Hoch-Button
-                if (currentPath !== "") {
-                    const upBtn = document.createElement("button");
-                    upBtn.innerText = "HOCH";
-                    upBtn.onclick = () => {
-                        const parts = currentPath.split("/").filter(Boolean);
-                        parts.pop();
-                        loadFolders(parts.join("/"));
-                    };
-                    folderDiv.appendChild(upBtn);
-                }
+				const fileDiv = document.getElementById("files");
+				fileDiv.innerHTML = "";
 
-                // Ordner-Buttons
-                (data.folders || []).forEach(folder => {
-                    const btn = document.createElement("button");
-                    btn.innerText = folder;
-                    btn.onclick = () => loadFolders((currentPath ? currentPath + "/" : "") + folder);
-                    folderDiv.appendChild(btn);
-                });
+                // Hoch-Button--->
 
-                // Dateien nur als Textliste
-                if (data.files && data.files.length > 0) {
-                    fileDiv.innerText = "Dateien:\n" + data.files.join("\n");
-                }
+        // Ordner-Buttons erzeugen
+	(data.folders || []).forEach(folder => {
+    const fullPath = (currentPath ? currentPath + "/" : "") + folder;
+
+    const btn = document.createElement("button");
+    btn.onclick = () => loadFolders(fullPath);
+
+    const img = document.createElement("img");
+    img.src = "/cover?path=" + encodeURIComponent(fullPath);
+
+    img.onerror = () => {
+        btn.innerText = folder;   // fallback: Text anzeigen
+    };
+
+    btn.appendChild(img);
+	// === Titel unter dem Bild ===
+    const label = document.createElement("span");
+    label.innerText = folder;
+
+    btn.appendChild(label);
+    // ============================
+	
+    folderDiv.appendChild(btn);
+});
+
+					// Dateien anzeigen
+if (data.files && data.files.length > 0) {
+    fileDiv.innerText = data.files.join("\n");
+}
+
 
             } catch (err) {
-                document.getElementById("current").innerText = "Fehler: " + err.message;
+                // document.getElementById("current").innerText = "Fehler: " + err.message;
                 document.getElementById("folders").innerHTML = "";
                 document.getElementById("files").innerHTML = "";
-                document.getElementById("output").innerText = "";
             }
         }
 
         window.addEventListener("load", () => loadFolders(""));
 
-		async function setEventListener() {
+async function setEventListener() {
     const button = document.getElementById("play");
     button.addEventListener("click", async () => {
         if (!currentPath) {
@@ -143,28 +184,52 @@ body {
                 alert("Fehler: " + data.error);
             } else {
                 alert(data.output || "Ordner wurde hinzugefügt!");
-                document.getElementById("output").innerText = data.output;
             }
         } catch (err) {
             alert("Fehler: " + err.message);
         }
     });
+
+	const upButton = document.getElementById("up");
+
+upButton.addEventListener("click", () => {
+    if (!currentPath) return;
+
+    const parts = currentPath.split("/").filter(Boolean);
+    parts.pop();
+    loadFolders(parts.join("/"));
+
+
+});
 }
 window.addEventListener("load", () => setEventListener());
 		
 		
     </script>
+
+<!-- ======================HTML-Block========================= -->
 </head>
 <body>
-	<div class="schalter">
-		<p><a href="/"><button class="button">PLAY</button></a></p>
-		<p><span id="current"></span></p>
-		<div id="folders"></div>
-		<div id="files"></div>
-		<p><button id="play">LOAD</button></p>
-		<div class="nachricht">
-			<pre id="output"></pre>
-		</div>
-	</div>
+
+<div class="topbar">
+	<button id="up" class="icon-button">
+		<img src="{{ url_for('static', filename='hoch.png') }}">
+    </button>
+	
+	<button class="icon-button">
+		<a href="/" class="icon-button"><img src="{{ url_for('static', filename='home.png') }}"></a>
+	</button>
+	
+   <!-- <span id="current"></span> -->
+    
+	<button id="play" class="icon-button">
+		<img src="{{ url_for('static', filename='play.png') }}">
+	</button>
+</div>
+
+<div id="folders"></div>
+<div id="files" class="filelist"></div>
+
 </body>
+
 </html>
