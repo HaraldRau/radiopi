@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <title>Radio Pi – Verzeichnis-Browser</title>
-    <style>
+<meta charset="UTF-8">
+<title>Radio Pi – Verzeichnis-Browser</title>
+<style>
 body {
     margin: 0;
     background-color: #f4f4f4;
     font-family: sans-serif;
-
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -19,7 +18,6 @@ body {
     border: none;
     padding: 0;
     cursor: pointer;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,7 +28,6 @@ body {
     font-size: 14px;
     width: 100%;
     text-align: center;
-
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -42,7 +39,6 @@ body {
     height: auto;         	 /*Seitenverhältnis behalten */
     aspect-ratio: 1 / 1;    /* quadratisch wie LP */
     object-fit: cover;
-
     border-radius: 6px;
     display: block;
 }
@@ -96,140 +92,103 @@ pre {
 }
 
 </style>
-    <script>
-        let currentPath = "";
-		// Ordner laden
-        async function loadFolders(path = "") {
-            const safePath = (path === undefined || path === null || path === "undefined") ? "" : path;
-
-            try {
-                const resp = await fetch("/list-folders?path=" + encodeURIComponent(safePath));
-                const data = await resp.json();
-
-                if (data.error) {
-                    // document.getElementById("current").innerText = "Fehler: " + data.error;
-                    document.getElementById("folders").innerHTML = "";
-                    document.getElementById("files").innerHTML = "";
-                    return;
+<script>
+	let currentPath = "";
+	// Ordner laden
+	async function loadFolders(path = "") {
+		const safePath = (path === undefined || path === null || path === "undefined") ? "" : path;
+		try {
+			const resp = await fetch("/list-folders?path=" + encodeURIComponent(safePath));
+			const data = await resp.json();
+			if (data.error) {
+				document.getElementById("folders").innerHTML = "";
+				document.getElementById("files").innerHTML = "";
+				return;
                 }
-
-                currentPath = (data.path === "." || data.path === "/" || !data.path) ? "" : data.path;
-                const absPath = "/home/hara/" + currentPath;
-                // document.getElementById("current").innerText = absPath;
-
-                const folderDiv = document.getElementById("folders");
-                folderDiv.innerHTML = "";
-
-				const fileDiv = document.getElementById("files");
-				fileDiv.innerHTML = "";
-
-                // Hoch-Button--->
-
-        // Ordner-Buttons erzeugen
-	(data.folders || []).forEach(folder => {
-    const fullPath = (currentPath ? currentPath + "/" : "") + folder;
-
-    const btn = document.createElement("button");
-    btn.onclick = () => loadFolders(fullPath);
-
-    const img = document.createElement("img");
-    img.src = "/cover?path=" + encodeURIComponent(fullPath);
-
-    img.onerror = () => {
-        btn.innerText = folder;   // fallback: Text anzeigen
-    };
-
-    btn.appendChild(img);
-	// === Titel unter dem Bild ===
-    const label = document.createElement("span");
-    label.innerText = folder;
-
-    btn.appendChild(label);
-    // ============================
-	
-    folderDiv.appendChild(btn);
-});
-
-					// Dateien anzeigen
-if (data.files && data.files.length > 0) {
-    fileDiv.innerText = data.files.join("\n");
-}
-
-
-            } catch (err) {
-                // document.getElementById("current").innerText = "Fehler: " + err.message;
-                document.getElementById("folders").innerHTML = "";
-                document.getElementById("files").innerHTML = "";
-            }
-        }
-
-        window.addEventListener("load", () => loadFolders(""));
-
-async function setEventListener() {
-    const button = document.getElementById("play");
-    button.addEventListener("click", async () => {
-        if (!currentPath) {
-            alert("Kein Verzeichnis gewählt!");
-            return;
-        }
-
-        try {
-            const resp = await fetch("/add-folder", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ path: currentPath })
-            });
-            const data = await resp.json();
-            if (data.error) {
-                alert("Fehler: " + data.error);
-            } else {
-                alert(data.output || "Ordner wurde hinzugefügt!");
-            }
-        } catch (err) {
-            alert("Fehler: " + err.message);
-        }
-    });
-
-	const upButton = document.getElementById("up");
-
-upButton.addEventListener("click", () => {
-    if (!currentPath) return;
-
-    const parts = currentPath.split("/").filter(Boolean);
-    parts.pop();
-    loadFolders(parts.join("/"));
-
-
-});
-}
-window.addEventListener("load", () => setEventListener());
-		
-		
-    </script>
+			currentPath = (data.path === "." || data.path === "/" || !data.path) ? "" : data.path;
+			const absPath = "/home/hara/" + currentPath;
+			const folderDiv = document.getElementById("folders");
+			folderDiv.innerHTML = "";
+			const fileDiv = document.getElementById("files");
+			fileDiv.innerHTML = "";
+			// Ordner-Buttons erzeugen
+			(data.folders || []).forEach(folder => {
+				const fullPath = (currentPath ? currentPath + "/" : "") + folder;
+				const btn = document.createElement("button");
+				btn.onclick = () => loadFolders(fullPath);
+				const img = document.createElement("img");
+				img.src = "/cover?path=" + encodeURIComponent(fullPath);
+				img.onerror = () => {
+					btn.innerText = folder;   // fallback: Text anzeigen
+				};
+				btn.appendChild(img);
+				// === Titel unter dem Bild ===
+				const label = document.createElement("span");
+				label.innerText = folder;
+				btn.appendChild(label);
+				// ============================
+				folderDiv.appendChild(btn);
+			});
+			// Dateien anzeigen
+			if (data.files && data.files.length > 0) {
+				fileDiv.innerText = data.files.join("\n");
+			}
+		} catch (err) {
+			document.getElementById("folders").innerHTML = "";
+			document.getElementById("files").innerHTML = "";
+		}
+	}
+	window.addEventListener("load", () => loadFolders(""));
+	async function setEventListener() {
+		const button = document.getElementById("play");
+		button.addEventListener("click", async () => {
+			if (!currentPath) {
+				alert("Kein Verzeichnis gewählt!");
+				return;
+			}
+			try {
+				const resp = await fetch("/add-folder", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ path: currentPath })
+				});
+				const data = await resp.json();
+				if (data.error) {
+					alert("Fehler: " + data.error);
+				}
+				else {
+					alert(data.output || "Ordner wurde hinzugefügt!");
+				}
+			} catch (err) {
+				alert("Fehler: " + err.message);
+			}
+		});
+		const upButton = document.getElementById("up");
+		upButton.addEventListener("click", () => {
+			if (!currentPath) return;
+			const parts = currentPath.split("/").filter(Boolean);
+			parts.pop();
+			loadFolders(parts.join("/"));
+		});
+	}
+	window.addEventListener("load", () => setEventListener());
+</script>
 
 <!-- ======================HTML-Block========================= -->
 </head>
-<body>
-
-<div class="topbar">
-	<button id="up" class="icon-button">
-		<img src="{{ url_for('static', filename='hoch.png') }}">
-    </button>
-	
-	<button class="icon-button">
-		<a href="/" class="icon-button"><img src="{{ url_for('static', filename='home.png') }}"></a>
-	</button>
-	
-   <!-- <span id="current"></span> -->
-    
-	<button id="play" class="icon-button">
-		<img src="{{ url_for('static', filename='play.png') }}">
-	</button>
-</div>
-
-<div id="folders"></div>
-<div id="files" class="filelist"></div>
-
-</body>
-
+	<body>
+		<div class="topbar">
+			<button id="up" class="icon-button">
+				<img src="{{ url_for('static', filename='hoch.png') }}">
+			</button>
+			<button class="icon-button">
+				<a href="/" class="icon-button"><img src="{{ url_for('static', filename='home.png') }}"></a>
+			</button>
+			<button id="play" class="icon-button">
+				<img src="{{ url_for('static', filename='play.png') }}">
+			</button>
+		</div>
+		<div id="folders"></div>
+		<div id="files" class="filelist"></div>
+	</body>
 </html>
