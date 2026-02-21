@@ -46,6 +46,14 @@ body {
     border-radius: 6px;
     display: block;
 }
+
+#files {
+    padding: 20px;
+    font-size: 14px;
+    background: #fafafa;
+    border-top: 1px solid #ddd;
+    white-space: pre-wrap;
+}
 		
 pre {
 	background: #eee;
@@ -111,6 +119,9 @@ pre {
 
                 const folderDiv = document.getElementById("folders");
                 folderDiv.innerHTML = "";
+
+				const fileDiv = document.getElementById("files");
+				fileDiv.innerHTML = "";
 
                 // Hoch-Button--->
 
@@ -182,6 +193,11 @@ upButton.addEventListener("click", () => {
     const parts = currentPath.split("/").filter(Boolean);
     parts.pop();
     loadFolders(parts.join("/"));
+
+	// Dateien anzeigen
+if (data.files && data.files.length > 0) {
+    fileDiv.innerText = data.files.join("\n");
+}
 });
 }
 window.addEventListener("load", () => setEventListener());
@@ -210,7 +226,7 @@ window.addEventListener("load", () => setEventListener());
 </div>
 
 <div id="folders"></div>
-<div id="files"></div>
+<div id="files" class="filelist"></div>
 
 </body>
 
