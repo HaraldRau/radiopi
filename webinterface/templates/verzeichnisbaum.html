@@ -150,6 +150,11 @@ pre {
     folderDiv.appendChild(btn);
 });
 
+					// Dateien anzeigen
+if (data.files && data.files.length > 0) {
+    fileDiv.innerText = data.files.join("\n");
+}
+
 
             } catch (err) {
                 // document.getElementById("current").innerText = "Fehler: " + err.message;
@@ -194,10 +199,7 @@ upButton.addEventListener("click", () => {
     parts.pop();
     loadFolders(parts.join("/"));
 
-	// Dateien anzeigen
-if (data.files && data.files.length > 0) {
-    fileDiv.innerText = data.files.join("\n");
-}
+
 });
 }
 window.addEventListener("load", () => setEventListener());
