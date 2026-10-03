@@ -135,7 +135,9 @@ pre {
 			});
 			// Dateien anzeigen
 			if (data.files && data.files.length > 0) {
-				fileDiv.innerText = data.files.join("\n");
+				fileDiv.innerHTML = data.files
+					.map(file => `<div>${file}</div>`)
+					.join("");
 			}
 		} catch (err) {
 			document.getElementById("folders").innerHTML = "";
