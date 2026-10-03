@@ -43,10 +43,10 @@ def run_command():
         return jsonify({"error": "Nicht erlaubter Befehl!"}), 400
 
     try:
-        output = subprocess.check_output(ALLOWED_COMMANDS[command_key], shell=True, text=True)
-        return jsonify({"output": output})
+        output = subprocess.check_output(ALLOWED_COMMANDS[command_key], shell=True, text=True, stderr=subprocess.STDOUT)
+        return jsonify({"success": True, "output": output if output else "Befehl erfolgreich ausgeführt."})
     except subprocess.CalledProcessError as e:
-        return jsonify({"error": str(e)}), 500
+        return jsonify({"success": False, "output": e.output if e.output else str(e)}), 500
 
 # === Beispiel: API für Explorer (Ordnerlisten) ===
 @app.route("/list-folders", methods=["GET"])
