@@ -44,7 +44,7 @@ def run_command():
 
     try:
         output = subprocess.check_output(ALLOWED_COMMANDS[command_key], shell=True, text=True, stderr=subprocess.STDOUT)
-        return jsonify({"success": True, "output": output if output else "Befehl erfolgreich ausgeführt."})
+        return jsonify({"success": True, "output": output if output else "RaspberryPi verbunden!"})
     except subprocess.CalledProcessError as e:
         return jsonify({"success": False, "output": e.output if e.output else str(e)}), 500
 
