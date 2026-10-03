@@ -116,7 +116,7 @@ pre {
 			const fileDiv = document.getElementById("files");
 			fileDiv.innerHTML = "";
 			// Ordner-Buttons erzeugen
-			(data.folders || []).forEach(folder => {
+			(data.folders || []).sort((a, b) => a.localeCompare(b, 'de', { sensitivity: 'base' })).forEach(folder => {
 				const fullPath = (currentPath ? currentPath + "/" : "") + folder;
 				const btn = document.createElement("button");
 				btn.onclick = () => loadFolders(fullPath);
@@ -161,7 +161,7 @@ pre {
 					alert("Fehler: " + data.error);
 				}
 				else {
-					alert(data.output || "Ordner wurde hinzugefügt!");
+					alert(data.output || "Musik wird abgespielt!");
 				}
 			} catch (err) {
 				alert("Fehler: " + err.message);
