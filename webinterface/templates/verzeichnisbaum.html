@@ -85,7 +85,6 @@ pre {
 }
 
 #folders {
-	flex: 1;
     display: grid;
     grid-template-columns: repeat(auto-fill, 200px);
     justify-content: start;
@@ -136,6 +135,7 @@ pre {
 			// Dateien anzeigen
 			if (data.files && data.files.length > 0) {
 				fileDiv.innerHTML = data.files
+					.sort((a, b) => a.localeCompare(b, 'de', { sensitivity: 'base' })) //Sortierung
 					.map(file => `<div>${file}</div>`)
 					.join("");
 			}
