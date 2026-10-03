@@ -8,21 +8,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Radio Pi</title>
-    <script>
-        function sendCommand(command) {
-            fetch("/run", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ command: command })
-            })
-            .then(response => response.json())
-            .then(data => {
+	<script>
+		function sendCommand(command) {
+        fetch("/run", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ command: command })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
                 document.getElementById("output").innerText = data.output;
-				alert(data.output);
-            })
-            .catch(error => console.error("Fehler:", error));
-        }
-    </script>
+            } else {
+                document.getElementById("output").innerText = "Fehler: " + data.output;
+            }
+        })
+        .catch(error => {
+            document.getElementById("output").innerText = "Fehler: " + error;
+        });
+    }
+</script>
     <style>
 body {
     margin: 0px;
